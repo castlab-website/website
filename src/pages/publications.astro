@@ -1,0 +1,316 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+
+// Mock publication data
+const publications = [
+  {
+    year: 2025,
+    items: [
+      {
+        title: "Robust Control Frameworks for Multi-Vehicle Platooning Under Extreme Weather",
+        authors: "John Doe, Jane Smith, Alan Turing",
+        journal: "IEEE Transactions on Intelligent Transportation Systems",
+        links: { pdf: "#", doi: "#" }
+      },
+      {
+        title: "Real-time Pedestrian Trajectory Prediction in Dense Urban Environments",
+        authors: "Alice Johnson, John Doe",
+        journal: "Proceedings of the IEEE Intelligent Vehicles Symposium (IV)",
+        links: { pdf: "#", doi: "#" }
+      }
+    ]
+  },
+  {
+    year: 2024,
+    items: [
+      {
+        title: "A Secure V2I Architecture for Smart Urban Intersections",
+        authors: "Bob Williams, Jane Smith",
+        journal: "ACM Symposium on Applied Computing",
+        links: { pdf: "#", doi: "#" }
+      },
+      {
+        title: "Deep Reinforcement Learning for Autonomous Merge Maneuvers",
+        authors: "Alan Turing, John Doe",
+        journal: "Robotics and Autonomous Systems",
+        links: { pdf: "#", doi: "#" }
+      }
+    ]
+  }
+];
+---
+
+<MainLayout title="Publications">
+  <div class="publications-page container">
+    <header class="page-header">
+      <h1>Selected Publications</h1>
+      
+      {/* Search and Filter Tools */}
+      <div class="pub-tools">
+        <div class="filter-dropdown">
+          <label for="year-filter">Sort By:</label>
+          <select id="year-filter" class="custom-select">
+            <option value="newest">Newest First (Year)</option>
+            <option value="oldest">Oldest First (Year)</option>
+          </select>
+        </div>
+        
+        <div class="search-bar">
+          <input type="text" placeholder="Search publications..." />
+          <button type="submit" aria-label="Search" class="search-btn">🔍</button>
+        </div>
+      </div>
+    </header>
+
+    <div class="publications-list">
+      {publications.map((yearGroup, yearIndex) => {
+        return (
+          <>
+            <div class="year-group">
+              <div class="year-heading">
+                <h2>{yearGroup.year}</h2>
+              </div>
+              
+              <div class="year-items">
+                {yearGroup.items.map((pub, pubIndex) => {
+                  return (
+                    <div class="pub-entry">
+                      <h3 class="pub-title">{pub.title}</h3>
+                      <p class="pub-authors">{pub.authors}</p>
+                      <p class="pub-journal"><em>{pub.journal}</em></p>
+                      
+                      <div class="pub-links">
+                        {pub.links.pdf ? <a href={pub.links.pdf} class="btn-small bg-maroon">PDF</a> : null}
+                        {pub.links.doi ? <a href={pub.links.doi} class="btn-small bg-secondary-maroon">DOI</a> : null}
+                      </div>
+
+                      {/* Technical/gear icon separator, unless it's the last item in the list */}
+                      {pubIndex < yearGroup.items.length - 1 ? (
+                        <div class="pub-separator">
+                          <span class="gear-icon">⚙️</span>
+                        </div>
+                      ) : null}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+            
+            {/* Major section divider, unless it's the very last year */}
+            {yearIndex < publications.length - 1 ? (
+              <hr class="year-divider" />
+            ) : null}
+          </>
+        );
+      })}
+    </div>
+  </div>
+</MainLayout>
+
+<style>
+  .publications-page {
+    padding: var(--spacing-xl) 0;
+  }
+
+  .page-header {
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .page-header h1 {
+    font-size: 2.5rem;
+    color: var(--primary-maroon);
+    border-bottom: 3px solid var(--secondary-maroon);
+    padding-bottom: var(--spacing-sm);
+    display: inline-block;
+  }
+
+  /* Toolbar */
+  .pub-tools {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: var(--spacing-lg);
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+  }
+
+  .custom-select {
+    padding: 0.5rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-left: 0.5rem;
+  }
+
+  .search-bar {
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .search-bar input {
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    min-width: 250px;
+  }
+
+  .search-btn {
+    background-color: var(--light-gray);
+    border: none;
+    padding: 0 1rem;
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+  }
+
+  .search-btn:hover {
+    background-color: #ddd;
+  }
+
+  /* List Layout */
+  .year-group {
+    display: flex;
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .year-heading {
+    flex: 0 0 150px;
+  }
+
+  .year-heading h2 {
+    font-size: 3rem;
+    color: var(--light-gray); /* Faded look for the large year */
+    text-shadow: 1px 1px 0 var(--secondary-maroon);
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    margin: 0;
+    position: sticky;
+    top: 100px; /* Sticks when scrolling if desired */
+  }
+
+  .year-items {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+  }
+
+  .pub-entry {
+    background-color: var(--white);
+    padding: var(--spacing-lg) 0;
+  }
+
+  .pub-title {
+    color: var(--primary-maroon);
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    text-transform: none;
+    font-family: var(--font-body);
+    font-weight: 600;
+  }
+
+  .pub-authors {
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .pub-journal {
+    color: var(--dark-gray);
+    margin-bottom: 1rem;
+  }
+
+  .pub-links {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .btn-small {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    color: var(--white);
+    text-decoration: none;
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: transform var(--transition-fast), opacity var(--transition-fast);
+  }
+  
+  .btn-small:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+    color: var(--white);
+  }
+
+  .bg-primary-maroon { background-color: var(--primary-maroon); }
+  .bg-secondary-maroon { background-color: var(--secondary-maroon); }
+
+  /* Separators */
+  .pub-separator {
+    text-align: center;
+    margin-top: var(--spacing-lg);
+    position: relative;
+  }
+  
+  .pub-separator::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: rgba(0,0,0,0.1);
+    z-index: 0;
+  }
+
+  .gear-icon {
+    font-size: 1.5rem;
+    background-color: var(--white);
+    padding: 0 1rem;
+    position: relative;
+    z-index: 1;
+    color: var(--secondary-maroon);
+    opacity: 0.5;
+  }
+
+  .year-divider {
+    border: 0;
+    height: 3px;
+    background-color: var(--primary-maroon);
+    margin: var(--spacing-xl) 0;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .year-group {
+      flex-direction: column;
+      gap: var(--spacing-md);
+    }
+
+    .year-heading {
+      flex: 0 0 auto;
+    }
+
+    .year-heading h2 {
+      writing-mode: horizontal-tb;
+      transform: none;
+      font-size: 2.5rem;
+      border-bottom: 2px solid var(--secondary-maroon);
+      padding-bottom: 0.5rem;
+      position: static;
+    }
+
+    .search-bar input {
+      min-width: auto;
+      width: 100%;
+    }
+  }
+</style>

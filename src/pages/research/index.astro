@@ -1,0 +1,99 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+
+// Placeholder data for projects
+const projects = [
+  {
+    id: 'autonomous-platooning',
+    title: 'Autonomous Platooning',
+    imageSrc: '/project-platooning.jpg',
+    description: 'Developing advanced control algorithms for safe and efficient multi-vehicle platooning on highways.',
+  },
+  {
+    id: 'smart-intersections',
+    title: 'Smart Intersections',
+    imageSrc: '/project-intersection.jpg',
+    description: 'V2I communication systems to optimize traffic flow and reduce collisions at complex urban intersections.',
+  },
+  {
+    id: 'pedestrian-safety',
+    title: 'Pedestrian Safety',
+    imageSrc: '/project-pedestrian.jpg',
+    description: 'Machine learning models for real-time pedestrian detection and trajectory prediction in dense environments.',
+  },
+  {
+    id: 'cybersecurity',
+    title: 'Vehicle Cybersecurity',
+    imageSrc: '/project-cyber.jpg',
+    description: 'Intrusion detection systems and secure communication protocols for connected autonomous vehicles.',
+  },
+  {
+    id: 'human-machine-interaction',
+    title: 'Human-Machine Interaction',
+    imageSrc: '/project-hmi.jpg',
+    description: 'Designing intuitive interfaces for smooth handover scenarios between autonomous systems and human drivers.',
+  },
+  {
+    id: 'sensor-fusion',
+    title: 'Advanced Sensor Fusion',
+    imageSrc: '/project-sensor.jpg',
+    description: 'Integrating LiDAR, radar, and camera data for robust perception in adverse weather conditions.',
+  }
+];
+---
+
+<MainLayout title="Research Projects">
+  <div class="container research-page">
+    <header class="page-header">
+      <h1>Our Research Projects !</h1>
+    </header>
+
+    <div class="projects-grid">
+      {projects.map((project) => (
+        <ProjectCard 
+          title={project.title}
+          imageSrc={project.imageSrc}
+          description={project.description}
+          link={`/research/${project.id}`}
+        />
+      ))}
+    </div>
+  </div>
+</MainLayout>
+
+<style>
+  .research-page {
+    padding: var(--spacing-xl) 0;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .page-header h1 {
+    font-size: 3rem;
+    color: var(--primary-maroon);
+    font-family: var(--font-heading); /* Or serif if preferred, but using Oswald for consistency as requested if swap is easy */
+    text-transform: none; /* Keep the exclamation mark visible naturally */
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+  }
+
+  @media (max-width: 992px) {
+    .projects-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

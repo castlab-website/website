@@ -1,0 +1,367 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout title="Home">
+  {/* Hero Section */}
+  <section class="hero-section">
+    {/* Placeholder for the Navistar truck background image */}
+    <div class="hero-bg" style="background-image: url('/home-truck-placeholder.jpg');"></div>
+    <div class="hero-overlay"></div>
+    
+    <div class="container hero-content">
+      <div class="hero-blocks">
+        <div class="block"><span>CONNECTED</span></div>
+        <div class="block"><span>AUTONOMOUS</span></div>
+        <div class="block"><span>SAFE</span></div>
+        <div class="block"><span>TECHNOLOGIES</span></div>
+      </div>
+      <p class="hero-subtitle fade-in">At CAST Lab</p>
+    </div>
+  </section>
+
+  {/* What We're Working On Section */}
+  <section class="working-on-section bg-maroon text-center">
+    <div class="container">
+      <h2>What We're Working On</h2>
+      <div class="circles-grid">
+        {/* Circle 1 */}
+        <div class="circle-item">
+          <div class="circle-photo-wrapper">
+             {/* Note: interaction states (enlarge slightly, don't gray out) in CSS */}
+            <img src="/circle-placeholder-1.jpg" alt="Research 1" class="circle-photo"/>
+          </div>
+          <p class="circle-label">Smart Sensing</p>
+        </div>
+        {/* Circle 2 */}
+        <div class="circle-item">
+          <div class="circle-photo-wrapper">
+            <img src="/circle-placeholder-2.jpg" alt="Research 2" class="circle-photo"/>
+          </div>
+          <p class="circle-label">Control Systems</p>
+        </div>
+        {/* Circle 3 */}
+        <div class="circle-item">
+          <div class="circle-photo-wrapper">
+            <img src="/circle-placeholder-3.jpg" alt="Research 3" class="circle-photo"/>
+          </div>
+          <p class="circle-label">Machine Learning</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Latest News & Publications Section */}
+  <section class="news-section">
+    <div class="container">
+      <h2 class="section-title">Latest <span style="color: var(--primary-maroon);">News</span> & Publications</h2>
+      
+      <div class="news-layout">
+        {/* Left Column: List of 3 recent publication cards */}
+        <div class="news-list">
+          <!-- News Item 1 -->
+          <div class="news-card">
+            <div class="news-date">Dec 15, 2025</div>
+            <div class="news-content">
+              <h3>New autonomous vehicle testing methodology published</h3>
+              <a href="#" class="read-more">Read Full Story →</a>
+            </div>
+          </div>
+          
+          <!-- News Item 2 -->
+          <div class="news-card">
+            <div class="news-date">Nov 02, 2025</div>
+            <div class="news-content">
+              <h3>CAST Lab researchers present at IEEE IV 2025</h3>
+              <a href="#" class="read-more">Read Full Story →</a>
+            </div>
+          </div>
+          
+          <!-- News Item 3 -->
+          <div class="news-card">
+            <div class="news-date">Oct 18, 2025</div>
+            <div class="news-content">
+              <h3>New grant awarded for smart sensing technologies</h3>
+              <a href="#" class="read-more">Read Full Story →</a>
+            </div>
+          </div>
+        </div>
+        
+        {/* Right Column: Large image (e.g., CASTbot) with ribbon button */}
+        <div class="news-feature">
+          <div class="feature-image">
+             {/* Placeholder for large image */}
+            <img src="/castbot-placeholder.jpg" alt="Featured News Image" />
+            
+            <a href="/news" class="ribbon-btn">
+              All News
+            </a>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  /* Hero Section */
+  .hero-section {
+    position: relative;
+    height: 80vh;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    background-color: var(--dark-gray); /* Fallback */
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+    /* Placeholder gradient until real image is added */
+    background: linear-gradient(135deg, #1a1a1a, #4a4a4a); 
+  }
+
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-blocks {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .hero-blocks .block {
+    background-color: rgba(80, 0, 0, 0.85); /* Semi-transparent maroon */
+    padding: 0.5rem 1.5rem;
+    box-shadow: 4px 4px 0px rgba(0,0,0,0.3);
+  }
+
+  .hero-blocks span {
+    color: var(--white);
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 5vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 2px;
+  }
+
+  .hero-subtitle {
+    color: var(--white);
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: 400;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    margin-left: 1.5rem;
+    animation-delay: 0.5s;
+  }
+
+  /* Working On Section */
+  .working-on-section {
+    padding: var(--spacing-xl) 0;
+  }
+
+  .working-on-section h2 {
+    color: var(--white);
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .circles-grid {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-xl);
+    flex-wrap: wrap;
+  }
+
+  .circle-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 280px;
+  }
+
+  .circle-photo-wrapper {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: var(--spacing-md);
+    background-color: var(--dark-maroon);
+    border: 5px solid var(--white);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    position: relative;
+    cursor: pointer;
+  }
+
+  .circle-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease-out; /* Smooth zoom */
+  }
+
+  /* Interaction: hover size increases, no grayscale */
+  .circle-photo-wrapper:hover .circle-photo {
+    transform: scale(1.1);
+  }
+
+  .circle-label {
+    color: var(--white);
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+  }
+
+  /* News Section */
+  .news-section {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--light-gray);
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-xl);
+    text-align: center;
+    color: var(--dark-gray);
+  }
+
+  .news-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+  }
+
+  /* Left Column: News List */
+  .news-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .news-card {
+    background-color: var(--white);
+    border-radius: 8px;
+    padding: var(--spacing-md) var(--spacing-lg);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  }
+
+  .news-card:hover {
+    transform: translateX(5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  }
+
+  .news-date {
+    font-family: var(--font-heading);
+    color: var(--secondary-maroon);
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+
+  .news-content h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+    color: var(--dark-gray);
+    text-transform: none;
+  }
+
+  .read-more {
+    color: var(--primary-maroon);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+  }
+  
+  .read-more:hover {
+     text-decoration: underline;
+  }
+
+  /* Right Column: Feature Image with Ribbon */
+  .news-feature {
+    height: 100%;
+    display: flex;
+    align-items: stretch;
+  }
+
+  .feature-image {
+    width: 100%;
+    background-color: #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    min-height: 400px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  }
+
+  .feature-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ribbon-btn {
+    position: absolute;
+    bottom: 30px;
+    right: -10px;
+    background-color: var(--primary-maroon);
+    color: var(--white);
+    padding: 1rem 2.5rem;
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: transform var(--transition-normal), background-color var(--transition-fast);
+  }
+  
+  .ribbon-btn::before {
+     content: '';
+     position: absolute;
+     top: -10px;
+     right: 0;
+     border-top: 10px solid transparent;
+     border-bottom: 0 solid transparent;
+     border-left: 10px solid var(--dark-maroon); /* Creates the ribbon fold effect */
+  }
+
+  .ribbon-btn:hover {
+    background-color: var(--secondary-maroon);
+    transform: scale(1.05);
+    color: var(--white);
+  }
+
+  @media (max-width: 900px) {
+    .news-layout {
+      grid-template-columns: 1fr;
+    }
+    
+    .feature-image {
+       min-height: 300px;
+    }
+  }
+</style>

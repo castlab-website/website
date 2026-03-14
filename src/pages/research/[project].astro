@@ -1,0 +1,170 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+
+export function getStaticPaths() {
+  // In a real app, this would fetch from a CMS or markdown files.
+  return [
+    {params: {project: 'autonomous-platooning'}},
+    {params: {project: 'smart-intersections'}},
+    {params: {project: 'pedestrian-safety'}},
+    {params: {project: 'cybersecurity'}},
+    {params: {project: 'human-machine-interaction'}},
+    {params: {project: 'sensor-fusion'}},
+  ];
+}
+
+const { project } = Astro.params;
+
+// Mock data fetch based on the slug
+const projectData = {
+  title: project.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+  imageSrc: `/project-${project.split('-')[0]}.jpg`,
+  whatIsIt: `The ${project.replace(/-/g, ' ')} project focuses on advancing the state-of-the-art in connected and autonomous technologies. By leveraging real-time data and advanced algorithms, we are building systems that act as the foundation for the next generation of intelligent transportation.`,
+  whyNeeded: 'As urban environments become more congested and the demand for efficient transport grows, traditional systems are reaching their limits. This research addresses critical safety bottlenecks and provides scalable solutions for future infrastructure.'
+};
+---
+
+<MainLayout title={projectData.title}>
+  <div class="container project-detail-page">
+    
+    <header class="project-header">
+      <img src={projectData.imageSrc} alt={projectData.title} class="header-image" onerror="this.src='/home-truck-placeholder.jpg'" />
+      <div class="header-title-box">
+        <h1>{projectData.title}</h1>
+      </div>
+    </header>
+
+    <div class="content-sections">
+      
+      {/* "What is it?" Section */}
+      <section class="info-section">
+        <div class="content-box bg-maroon chevron-box">
+          <h2>What is it?</h2>
+          <p>{projectData.whatIsIt}</p>
+        </div>
+        <div class="empty-space"></div>
+      </section>
+
+      {/* "Why is it needed?" Section */}
+      <section class="info-section reverse-section">
+        <div class="empty-space"></div>
+        <div class="content-box bg-secondary-maroon reverse-chevron-box">
+          <h2>Why is it needed?</h2>
+          <p>{projectData.whyNeeded}</p>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</MainLayout>
+
+<style>
+  .project-detail-page {
+    padding: var(--spacing-lg) 0 var(--spacing-xl) 0;
+  }
+
+  .project-header {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: var(--spacing-xl);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    background-color: var(--light-gray);
+  }
+
+  .header-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .header-title-box {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(80, 0, 0, 0.9);
+    padding: var(--spacing-md) var(--spacing-xl);
+    border-top-right-radius: 16px;
+  }
+
+  .header-title-box h1 {
+    color: var(--white);
+    margin: 0;
+    font-size: 2.5rem;
+  }
+
+  .content-sections {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+  }
+
+  .info-section {
+    display: flex;
+    align-items: center;
+  }
+
+  .info-section.reverse-section {
+    /* For alternating layout if desired */
+  }
+
+  .content-box {
+    flex: 0 0 70%;
+    padding: var(--spacing-xl);
+    color: var(--white);
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+
+  .empty-space {
+    flex: 0 0 30%;
+  }
+
+  .content-box h2 {
+    color: var(--white);
+    border-bottom: 2px solid rgba(255,255,255,0.3);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .content-box p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* Chevron Cutout Effect using clip-path */
+  .chevron-box {
+    clip-path: polygon(0% 0%, 95% 0%, 100% 50%, 95% 100%, 0% 100%);
+  }
+
+  /* Reversed Chevron for variety */
+  .reverse-chevron-box {
+    clip-path: polygon(5% 0%, 100% 0%, 100% 100%, 5% 100%, 0% 50%);
+  }
+  
+  .bg-secondary-maroon {
+    background-color: var(--secondary-maroon);
+  }
+
+  @media (max-width: 768px) {
+    .header-image {
+      height: 250px;
+    }
+    
+    .header-title-box h1 {
+      font-size: 1.8rem;
+    }
+
+    .content-box {
+      flex: 0 0 100%;
+      clip-path: none; /* Remove chevron on mobile for better text fit */
+      border-radius: 8px;
+    }
+    
+    .empty-space {
+      display: none;
+    }
+  }
+</style>

@@ -1,0 +1,183 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import MemberCard from '../components/MemberCard.astro';
+
+const teamMembers = {
+  director: [
+    {
+      name: 'Dr. John Doe',
+      title: 'Lab Director & Professor',
+      bio: 'Leading research in connected and autonomous vehicle systems with over 20 years of experience in control theory and machine learning.',
+      imageSrc: '/team-director.jpg'
+    }
+  ],
+  postdocs: [
+    {
+      name: 'Dr. Jane Smith',
+      title: 'Postdoctoral Researcher',
+      bio: 'Focuses on advanced sensor fusion and robust perception algorithms under adverse weather conditions.',
+      imageSrc: '/team-postdoc1.jpg'
+    },
+    {
+      name: 'Dr. Alan Turing',
+      title: 'Postdoctoral Researcher',
+      bio: 'Specializes in reinforcement learning for complex urban intersection navigation.',
+    }
+  ],
+  phd: [
+    {
+      name: 'Alice Johnson',
+      title: 'Ph.D. Candidate',
+      bio: 'Researching vehicle-to-infrastructure (V2I) communication protocols for smart city integration.',
+    },
+    {
+      name: 'Bob Williams',
+      title: 'Ph.D. Candidate',
+      bio: 'Developing novel intrusion detection systems for connected vehicle networks.',
+    }
+  ]
+};
+---
+
+<MainLayout title="People">
+  <div class="people-page container">
+    
+    <header class="team-header">
+      <img src="/team-pano.jpg" alt="CAST Lab Team" class="pano-img" onerror="this.src='/home-truck-placeholder.jpg'" />
+      <div class="header-overlay">
+        <h1>Meet the CAST Team</h1>
+      </div>
+    </header>
+
+    <div class="team-sections">
+      
+      <section class="role-section">
+        <h2>Lab Director</h2>
+        <div class="members-list">
+          {teamMembers.director.map(member => (
+            <MemberCard {...member} />
+          ))}
+        </div>
+      </section>
+
+      <section class="role-section bg-light-section">
+        <h2>Postdoctoral Researchers</h2>
+        <div class="members-list">
+          {teamMembers.postdocs.map(member => (
+            <MemberCard {...member} />
+          ))}
+        </div>
+      </section>
+
+      <section class="role-section">
+        <h2>Ph.D. Students</h2>
+        <div class="members-list">
+          {teamMembers.phd.map(member => (
+            <MemberCard {...member} />
+          ))}
+        </div>
+      </section>
+
+    </div>
+  </div>
+</MainLayout>
+
+<style>
+  .people-page {
+    padding: var(--spacing-lg) 0 var(--spacing-xl) 0;
+  }
+
+  .team-header {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: var(--spacing-xl);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  }
+
+  .pano-img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover; /* Panoramic effect */
+    display: block;
+    filter: brightness(0.8);
+  }
+
+  .header-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to top, rgba(80, 0, 0, 0.7), transparent);
+  }
+
+  .header-overlay h1 {
+    color: var(--white);
+    font-size: 3.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    margin: 0;
+    text-align: center;
+    padding: 0 var(--spacing-md);
+  }
+
+  /* Team Sections Layout */
+  .team-sections {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+  }
+
+  .role-section {
+    padding: var(--spacing-lg) 0;
+  }
+
+  .bg-light-section {
+    /* Slight background alternating for visual break */
+    background-color: var(--light-gray);
+    margin: 0 calc(-50vw + 50%); /* Full bleed trick */
+    padding: var(--spacing-xl) calc(50vw - 50%);
+  }
+
+  .role-section h2 {
+    text-align: center;
+    font-size: 2.25rem;
+    color: var(--primary-maroon);
+    margin-bottom: var(--spacing-lg);
+    font-family: var(--font-heading);
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .role-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 25%;
+    width: 50%;
+    height: 3px;
+    background-color: var(--secondary-maroon);
+  }
+
+  .members-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  @media (max-width: 768px) {
+    .pano-img {
+      height: 200px;
+    }
+    
+    .header-overlay h1 {
+      font-size: 2rem;
+    }
+    
+    .role-section h2 {
+      font-size: 1.8rem;
+    }
+  }
+</style>
