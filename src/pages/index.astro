@@ -6,7 +6,7 @@ import MainLayout from '../layouts/MainLayout.astro';
   {/* Hero Section */}
   <section class="hero-section">
     {/* Placeholder for the Navistar truck background image */}
-    <div class="hero-bg" style="background-image: url('/home-truck-placeholder.jpg');"></div>
+    <div class="hero-bg" style="background-image: url('/img/homepage.JPG');"></div>
     <div class="hero-overlay"></div>
     
     <div class="container hero-content">
@@ -20,33 +20,49 @@ import MainLayout from '../layouts/MainLayout.astro';
     </div>
   </section>
 
+  {/* What CAST Lab Does Section */}
+  <section class="about-section">
+    <div class="container about-container">
+      <div class="about-image">
+        <img src="/img/mkz.png" alt="CAST Lab Vehicle" class="shadow-effect" />
+      </div>
+      <div class="about-text">
+        <h2>What CAST Lab Does</h2>
+        <p>The Connected Autonomous Safe Technologies (CAST) Lab at Texas A&M University is dedicated to advancing the state-of-the-art in connected and autonomous vehicles. We focus on developing robust control systems, smart sensing technologies, and advanced machine learning algorithms to ensure the safety, efficiency, and reliability of future transportation systems.</p>
+      </div>
+    </div>
+  </section>
+
   {/* What We're Working On Section */}
   <section class="working-on-section bg-maroon text-center">
     <div class="container">
       <h2>What We're Working On</h2>
       <div class="circles-grid">
         {/* Circle 1 */}
-        <div class="circle-item">
+        <a href="/research/sensor-fusion" class="circle-item">
           <div class="circle-photo-wrapper">
              {/* Note: interaction states (enlarge slightly, don't gray out) in CSS */}
             <img src="/circle-placeholder-1.jpg" alt="Research 1" class="circle-photo"/>
           </div>
           <p class="circle-label">Smart Sensing</p>
-        </div>
+        </a>
         {/* Circle 2 */}
-        <div class="circle-item">
+        <a href="/research/autonomous-platooning" class="circle-item">
           <div class="circle-photo-wrapper">
             <img src="/circle-placeholder-2.jpg" alt="Research 2" class="circle-photo"/>
           </div>
           <p class="circle-label">Control Systems</p>
-        </div>
+        </a>
         {/* Circle 3 */}
-        <div class="circle-item">
+        <a href="/research/machine-learning" class="circle-item">
           <div class="circle-photo-wrapper">
             <img src="/circle-placeholder-3.jpg" alt="Research 3" class="circle-photo"/>
           </div>
           <p class="circle-label">Machine Learning</p>
-        </div>
+        </a>
+      </div>
+      <div class="more-projects-wrapper">
+        <a href="/research/" class="btn bg-primary-maroon">More Projects</a>
       </div>
     </div>
   </section>
@@ -54,7 +70,7 @@ import MainLayout from '../layouts/MainLayout.astro';
   {/* Latest News & Publications Section */}
   <section class="news-section">
     <div class="container">
-      <h2 class="section-title">Latest <span style="color: var(--primary-maroon);">News</span> & Publications</h2>
+      <h2 class="section-title">Latest <span>News</span> & Publications</h2>
       
       <div class="news-layout">
         {/* Left Column: List of 3 recent publication cards */}
@@ -91,7 +107,7 @@ import MainLayout from '../layouts/MainLayout.astro';
         <div class="news-feature">
           <div class="feature-image">
              {/* Placeholder for large image */}
-            <img src="/castbot-placeholder.jpg" alt="Featured News Image" />
+            <img src="/img/castbot.png" alt="Featured News Image" />
             
             <a href="/news" class="ribbon-btn">
               All News
@@ -142,6 +158,55 @@ import MainLayout from '../layouts/MainLayout.astro';
   .hero-content {
     position: relative;
     z-index: 2;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* About Section */
+  .about-section {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--white);
+  }
+
+  .about-container {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xl);
+  }
+
+  .about-image {
+    flex: 1;
+  }
+
+  .about-image img.shadow-effect {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.2);
+  }
+
+  .about-text {
+    flex: 1;
+  }
+
+  .about-text h2 {
+    color: var(--primary-maroon);
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .about-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--dark-gray);
+  }
+
+  @media (max-width: 768px) {
+    .about-container {
+      flex-direction: column;
+    }
   }
 
   .hero-blocks {
@@ -200,6 +265,29 @@ import MainLayout from '../layouts/MainLayout.astro';
     flex-direction: column;
     align-items: center;
     width: 280px;
+    text-decoration: none;
+  }
+
+  .more-projects-wrapper {
+    margin-top: var(--spacing-xl);
+    text-align: center;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    color: var(--white);
+    background-color: var(--primary-maroon);
+    text-decoration: none;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: background-color var(--transition-fast), transform var(--transition-fast);
+  }
+  .btn:hover {
+    background-color: var(--secondary-maroon);
+    transform: translateY(-2px);
   }
 
   .circle-photo-wrapper {
@@ -239,14 +327,14 @@ import MainLayout from '../layouts/MainLayout.astro';
   /* News Section */
   .news-section {
     padding: var(--spacing-xl) 0;
-    background-color: var(--light-gray);
+    background-color: var(--secondary-maroon);
   }
 
   .section-title {
     font-size: 2.5rem;
     margin-bottom: var(--spacing-xl);
     text-align: center;
-    color: var(--dark-gray);
+    color: var(--white);
   }
 
   .news-layout {

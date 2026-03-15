@@ -24,16 +24,28 @@ const teamMembers = {
       bio: 'Specializes in reinforcement learning for complex urban intersection navigation.',
     }
   ],
-  phd: [
+  graduate: [
     {
       name: 'Alice Johnson',
-      title: 'Ph.D. Candidate',
+      title: 'Graduate Student',
       bio: 'Researching vehicle-to-infrastructure (V2I) communication protocols for smart city integration.',
     },
     {
       name: 'Bob Williams',
-      title: 'Ph.D. Candidate',
+      title: 'Graduate Student',
       bio: 'Developing novel intrusion detection systems for connected vehicle networks.',
+    }
+  ],
+  undergraduate: [
+    {
+      name: 'Charlie Brown',
+      title: 'Undergraduate Researcher',
+      bio: 'Assisting in data collection and preliminary analysis for pedestrian safety models.',
+    },
+    {
+      name: 'Diana Prince',
+      title: 'Undergraduate Researcher',
+      bio: 'Developing visualization dashboards for autonomous platooning simulations.',
     }
   ]
 };
@@ -43,7 +55,7 @@ const teamMembers = {
   <div class="people-page container">
     
     <header class="team-header">
-      <img src="/team-pano.jpg" alt="CAST Lab Team" class="pano-img" onerror="this.src='/home-truck-placeholder.jpg'" />
+      <img src="/img/groupphoto.jpg" alt="CAST Lab Team" class="pano-img" onerror="this.src='/home-truck-placeholder.jpg'" />
       <div class="header-overlay">
         <h1>Meet the CAST Team</h1>
       </div>
@@ -70,9 +82,18 @@ const teamMembers = {
       </section>
 
       <section class="role-section">
-        <h2>Ph.D. Students</h2>
+        <h2>Graduate Students</h2>
         <div class="members-list">
-          {teamMembers.phd.map(member => (
+          {teamMembers.graduate.map(member => (
+            <MemberCard {...member} />
+          ))}
+        </div>
+      </section>
+
+      <section class="role-section bg-light-section">
+        <h2>Undergraduate Students</h2>
+        <div class="members-list">
+          {teamMembers.undergraduate.map(member => (
             <MemberCard {...member} />
           ))}
         </div>

@@ -109,7 +109,7 @@ const publications = [
 
 <style>
   .publications-page {
-    padding: var(--spacing-xl) 0;
+    padding: var(--spacing-xl) var(--spacing-md);
   }
 
   .page-header {
@@ -184,11 +184,7 @@ const publications = [
 
   .year-heading h2 {
     font-size: 3rem;
-    color: var(--light-gray); /* Faded look for the large year */
-    text-shadow: 1px 1px 0 var(--secondary-maroon);
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-    transform: rotate(180deg);
+    color: var(--primary-maroon);
     margin: 0;
     position: sticky;
     top: 100px; /* Sticks when scrolling if desired */
@@ -300,8 +296,6 @@ const publications = [
     }
 
     .year-heading h2 {
-      writing-mode: horizontal-tb;
-      transform: none;
       font-size: 2.5rem;
       border-bottom: 2px solid var(--secondary-maroon);
       padding-bottom: 0.5rem;

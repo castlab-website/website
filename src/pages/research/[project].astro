@@ -20,7 +20,8 @@ const projectData = {
   title: project.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
   imageSrc: `/project-${project.split('-')[0]}.jpg`,
   whatIsIt: `The ${project.replace(/-/g, ' ')} project focuses on advancing the state-of-the-art in connected and autonomous technologies. By leveraging real-time data and advanced algorithms, we are building systems that act as the foundation for the next generation of intelligent transportation.`,
-  whyNeeded: 'As urban environments become more congested and the demand for efficient transport grows, traditional systems are reaching their limits. This research addresses critical safety bottlenecks and provides scalable solutions for future infrastructure.'
+  whyNeeded: 'As urban environments become more congested and the demand for efficient transport grows, traditional systems are reaching their limits. This research addresses critical safety bottlenecks and provides scalable solutions for future infrastructure.',
+  whatCastIsDoing: 'Researchers at CAST lab are developing robust algorithms and conducting extensive real-world testing using our equipped vehicles to ensure these technologies perform safely under all conditions.'
 };
 ---
 
@@ -52,6 +53,15 @@ const projectData = {
           <h2>Why is it needed?</h2>
           <p>{projectData.whyNeeded}</p>
         </div>
+      </section>
+
+      {/* "What is CAST lab doing to improve it?" Section */}
+      <section class="info-section">
+        <div class="content-box bg-maroon chevron-box">
+          <h2>What is CAST lab doing to improve it?</h2>
+          <p>{projectData.whatCastIsDoing}</p>
+        </div>
+        <div class="empty-space"></div>
       </section>
 
     </div>
@@ -110,7 +120,7 @@ const projectData = {
   }
 
   .content-box {
-    flex: 0 0 70%;
+    flex: 0 0 85%;
     padding: var(--spacing-xl);
     color: var(--white);
     position: relative;
@@ -118,7 +128,7 @@ const projectData = {
   }
 
   .empty-space {
-    flex: 0 0 30%;
+    flex: 0 0 15%;
   }
 
   .content-box h2 {
