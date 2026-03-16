@@ -21,7 +21,11 @@ const projectData = {
   imageSrc: `/project-${project.split('-')[0]}.jpg`,
   whatIsIt: `The ${project.replace(/-/g, ' ')} project focuses on advancing the state-of-the-art in connected and autonomous technologies. By leveraging real-time data and advanced algorithms, we are building systems that act as the foundation for the next generation of intelligent transportation.`,
   whyNeeded: 'As urban environments become more congested and the demand for efficient transport grows, traditional systems are reaching their limits. This research addresses critical safety bottlenecks and provides scalable solutions for future infrastructure.',
-  whatCastIsDoing: 'Researchers at CAST lab are developing robust algorithms and conducting extensive real-world testing using our equipped vehicles to ensure these technologies perform safely under all conditions.'
+  whatCastIsDoing: 'Researchers at CAST lab are developing robust algorithms and conducting extensive real-world testing using our equipped vehicles to ensure these technologies perform safely under all conditions.',
+  publications: [
+    { title: 'Project-Specific Paper on Connected Vehicles Architecture', link: '#' },
+    { title: 'Scalable Frameworks for Autonomous Operations Safety', link: '#' }
+  ]
 };
 ---
 
@@ -62,6 +66,19 @@ const projectData = {
           <p>{projectData.whatCastIsDoing}</p>
         </div>
         <div class="empty-space"></div>
+      </section>
+
+      {/* "Select Publications or Links" Section */}
+      <section class="info-section reverse-section">
+        <div class="empty-space"></div>
+        <div class="content-box bg-secondary-maroon reverse-chevron-box">
+          <h2>Select Publications & Links</h2>
+          <ul class="publications-list">
+            {projectData.publications.map(pub => (
+              <li><a href={pub.link}>{pub.title}</a></li>
+            ))}
+          </ul>
+        </div>
       </section>
 
     </div>
@@ -142,6 +159,26 @@ const projectData = {
     font-size: 1.1rem;
     line-height: 1.6;
     margin: 0;
+  }
+
+  .publications-list {
+    list-style: none; /* Can be changed to disc if bullets are preferred */
+    padding-left: 1.5rem;
+    margin: 0;
+  }
+  
+  .publications-list li {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    list-style-type: square;
+  }
+  
+  .publications-list a {
+    color: var(--white);
+    text-decoration: underline;
+  }
+  .publications-list a:hover {
+    color: var(--light-gray);
   }
 
   /* Chevron Cutout Effect using clip-path */

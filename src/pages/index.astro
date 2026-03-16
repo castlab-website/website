@@ -62,7 +62,7 @@ import MainLayout from '../layouts/MainLayout.astro';
         </a>
       </div>
       <div class="more-projects-wrapper">
-        <a href="/research/" class="btn bg-primary-maroon">More Projects</a>
+        <a href="/research/" class="btn btn-secondary">More Projects</a>
       </div>
     </div>
   </section>
@@ -140,9 +140,8 @@ import MainLayout from '../layouts/MainLayout.astro';
     height: 100%;
     background-size: cover;
     background-position: center;
+    background-color: #1a1a1a;
     z-index: 0;
-    /* Placeholder gradient until real image is added */
-    background: linear-gradient(135deg, #1a1a1a, #4a4a4a); 
   }
 
   .hero-overlay {
@@ -167,7 +166,7 @@ import MainLayout from '../layouts/MainLayout.astro';
   /* About Section */
   .about-section {
     padding: var(--spacing-xl) 0;
-    background-color: var(--white);
+    background-color: var(--secondary-maroon);
   }
 
   .about-container {
@@ -184,7 +183,7 @@ import MainLayout from '../layouts/MainLayout.astro';
     width: 100%;
     height: auto;
     border-radius: 8px;
-    box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.2);
+    filter: drop-shadow(20px 20px 30px rgba(0, 0, 0, 0.2));
   }
 
   .about-text {
@@ -192,7 +191,7 @@ import MainLayout from '../layouts/MainLayout.astro';
   }
 
   .about-text h2 {
-    color: var(--primary-maroon);
+    color: var(--white);
     font-size: 2.5rem;
     margin-bottom: var(--spacing-md);
   }
@@ -200,7 +199,7 @@ import MainLayout from '../layouts/MainLayout.astro';
   .about-text p {
     font-size: 1.1rem;
     line-height: 1.6;
-    color: var(--dark-gray);
+    color: var(--white);
   }
 
   @media (max-width: 768px) {
@@ -288,6 +287,13 @@ import MainLayout from '../layouts/MainLayout.astro';
   .btn:hover {
     background-color: var(--secondary-maroon);
     transform: translateY(-2px);
+  }
+
+  .btn-secondary {
+    background-color: var(--secondary-maroon);
+  }
+  .btn-secondary:hover {
+    background-color: var(--dark-maroon);
   }
 
   .circle-photo-wrapper {
@@ -397,12 +403,12 @@ import MainLayout from '../layouts/MainLayout.astro';
 
   .feature-image {
     width: 100%;
-    background-color: #ddd;
+    background-color: transparent;
     border-radius: 8px;
     overflow: hidden;
     position: relative;
     min-height: 400px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
   }
 
   .feature-image img {
