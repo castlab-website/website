@@ -82,7 +82,7 @@ const { title, imageSrc, description, link } = Astro.props;
   /* Specific Hover Effects requested in detail_spec.md */
   .project-card:hover .image-wrapper img {
     transform: scale(1.05); /* Enlarge slightly */
-    filter: grayscale(100%); /* Gray out */
+    filter: brightness(1.08) contrast(1.02); /* Subtle brighten instead of full grayscale */
   }
 
   .project-card:hover .overlay {

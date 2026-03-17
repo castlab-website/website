@@ -5,14 +5,17 @@ const currentYear = new Date().getFullYear();
 <footer class="global-footer bg-maroon">
   <div class="container footer-container">
     <div class="footer-primary">
-      <h2 class="lab-title">CAST - Connected Autonomous Safe Technologies Laboratory @ Texas A&M University</h2>
+      <h2 class="lab-title">
+      CAST - Connected Autonomous Safe Technologies Laboratory
+      <span class="university-text">@ Texas A&M University</span>
+    </h2>
     </div>
     
     <div class="footer-secondary">
       <div class="contact-info">
         <h3>Contact Us</h3>
         <p>1234 Engineering Building<br>College Station, TX 77843</p>
-        <p><a href="mailto:contact@cast.tamu.edu">contact@cast.tamu.edu</a></p>
+        <p><a href="mailto:cast@insert.email.edu">cast@insert.email.edu</a></p>
       </div>
       
       <div class="footer-links">
@@ -47,8 +50,21 @@ const currentYear = new Date().getFullYear();
 
   .lab-title {
     font-size: 2rem;
-    max-width: 800px;
+    max-width: 100%;
     margin-bottom: 0;
+  }
+
+  .lab-title {
+    opacity: 0;
+    animation: slideInDown 0.6s ease-out forwards;
+  }
+
+  .university-text {
+    font-size: 1.25rem;
+    display: block;
+    font-weight: normal; 
+    margin-top: 0.5rem;
+    /* font-family: 'Your-Alternate-Font', sans-serif; Optional: Use a different font for the university text */
   }
 
   .footer-secondary {
@@ -72,8 +88,24 @@ const currentYear = new Date().getFullYear();
 
   .contact-info a {
     text-transform: none;
-    text-decoration: underline;
+    text-decoration: none;
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+    position: relative;
+    padding-bottom: 2px;
   }
+
+  .contact-info a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background: rgba(255,255,255,0.9);
+    transition: width var(--transition-normal);
+  }
+  .contact-info a:hover::after { width: 100%; }
+  .contact-info a:hover { color: var(--white); }
 
   .footer-links ul {
     list-style: none;
@@ -81,7 +113,27 @@ const currentYear = new Date().getFullYear();
 
   .footer-links li {
     margin-bottom: 0.5rem;
+    margin-right: 5rem;
   }
+
+  .footer-links a {
+    color: var(--white);
+    position: relative;
+    transition: color var(--transition-fast);
+  }
+
+  .footer-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background: var(--white);
+    transition: width var(--transition-normal);
+  }
+
+  .footer-links a:hover::after { width: 100%; }
 
   .footer-bottom {
     text-align: center;

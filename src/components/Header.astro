@@ -32,7 +32,13 @@
     top: 0;
     z-index: 100;
     padding: var(--spacing-md) 0;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+    transition: box-shadow var(--transition-normal), background-color var(--transition-normal);
+  }
+
+  .global-header.scrolled {
+    box-shadow: 0 12px 35px rgba(0,0,0,0.22);
+    backdrop-filter: blur(4px);
   }
 
   .header-container {
@@ -47,6 +53,14 @@
     display: block;
     margin-top: -30px;
     margin-bottom: -30px;
+  }
+
+  .header-logo {
+    transition: transform var(--transition-normal);
+  }
+
+  .header-logo:hover {
+    transform: scale(1.03);
   }
 
   .main-nav ul {
@@ -152,5 +166,19 @@
       toggleBtn.classList.toggle('active');
       mainNav.classList.toggle('active');
     });
+  }
+
+  // Add a subtle shadow when the page is scrolled
+  const header = document.querySelector('.global-header');
+  if (header) {
+    const onScroll = () => {
+      if (window.scrollY > 24) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
   }
 </script>

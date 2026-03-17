@@ -90,4 +90,17 @@ const projects = [
       grid-template-columns: 1fr;
     }
   }
+
+  /* Staggered project reveal */
+  .projects-grid > * { opacity: 0; transform: translateY(12px); animation: slideUp 0.55s ease-out forwards; }
+  .projects-grid > *:nth-child(1) { animation-delay: 0.08s; }
+  .projects-grid > *:nth-child(2) { animation-delay: 0.14s; }
+  .projects-grid > *:nth-child(3) { animation-delay: 0.20s; }
+  .projects-grid > *:nth-child(4) { animation-delay: 0.26s; }
+  .projects-grid > *:nth-child(5) { animation-delay: 0.32s; }
+
+  .page-header h1 { position: relative; display: inline-block; }
+  .page-header h1::after { content: ''; position: absolute; left: 0; bottom: -10px; width: 0; height: 4px; background: var(--primary-maroon); transition: width 0.8s ease-out; }
+  .page-header h1 { animation: fadeIn 0.6s ease-out forwards; }
+  .page-header h1[style]::after, .page-header h1 { width: auto; }
 </style>
