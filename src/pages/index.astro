@@ -16,7 +16,7 @@ import MainLayout from '../layouts/MainLayout.astro';
         <div class="block"><span>SAFE</span></div>
         <div class="block"><span>TECHNOLOGIES</span></div>
       </div>
-      <p class="hero-subtitle fade-in">At CAST Lab</p>
+      <p class="hero-subtitle fade-in">CAST Lab</p>
     </div>
   </section>
 
@@ -24,11 +24,11 @@ import MainLayout from '../layouts/MainLayout.astro';
   <section class="about-section">
     <div class="container about-container">
       <div class="about-image">
-        <img src="/img/mkz.png" alt="CAST Lab Vehicle" class="shadow-effect" />
+        <img src="/img/mkz.png" alt="CAST Lab Vehicle" />
       </div>
       <div class="about-text">
         <h2>What CAST Lab Does</h2>
-        <p>The Connected Autonomous Safe Technologies (CAST) Lab at Texas A&M University is dedicated to advancing the state-of-the-art in connected and autonomous vehicles. We focus on developing robust control systems, smart sensing technologies, and advanced machine learning algorithms to ensure the safety, efficiency, and reliability of future transportation systems.</p>
+        <p>About text</p>
       </div>
     </div>
   </section>
@@ -39,26 +39,25 @@ import MainLayout from '../layouts/MainLayout.astro';
       <h2>What We're Working On</h2>
       <div class="circles-grid">
         {/* Circle 1 */}
-        <a href="/research/sensor-fusion" class="circle-item">
+        <a href="/research/hard-platooning" class="circle-item">
           <div class="circle-photo-wrapper">
-             {/* Note: interaction states (enlarge slightly, don't gray out) in CSS */}
-            <img src="/circle-placeholder-1.jpg" alt="Research 1" class="circle-photo"/>
+            <img src="/img/tempProject.jpg" alt="Research 1" class="circle-photo"/>
           </div>
-          <p class="circle-label">Smart Sensing</p>
+          <p class="circle-label">Hard Platooning</p>
         </a>
         {/* Circle 2 */}
-        <a href="/research/autonomous-platooning" class="circle-item">
+        <a href="/research/Project1" class="circle-item">
           <div class="circle-photo-wrapper">
-            <img src="/circle-placeholder-2.jpg" alt="Research 2" class="circle-photo"/>
+            <img src="/img/tempProject.jpg" alt="Research 2" class="circle-photo"/>
           </div>
-          <p class="circle-label">Control Systems</p>
+          <p class="circle-label">Temp</p>
         </a>
         {/* Circle 3 */}
-        <a href="/research/machine-learning" class="circle-item">
+        <a href="/research/Project2" class="circle-item">
           <div class="circle-photo-wrapper">
-            <img src="/circle-placeholder-3.jpg" alt="Research 3" class="circle-photo"/>
+            <img src="/img/tempProject.jpg" alt="Research 3" class="circle-photo"/>
           </div>
-          <p class="circle-label">Machine Learning</p>
+          <p class="circle-label">Temp</p>
         </a>
       </div>
       <div class="more-projects-wrapper">
@@ -73,32 +72,31 @@ import MainLayout from '../layouts/MainLayout.astro';
       <h2 class="section-title">Latest <span>News</span> & Publications</h2>
       
       <div class="news-layout">
-        {/* Left Column: List of 3 recent publication cards */}
         <div class="news-list">
           <!-- News Item 1 -->
           <div class="news-card">
-            <div class="news-date">Dec 15, 2025</div>
+            <div class="news-date">Date</div>
             <div class="news-content">
-              <h3>New autonomous vehicle testing methodology published</h3>
-              <a href="#" class="read-more">Read Full Story →</a>
+              <h3>Headline</h3>
+              <a href="#" class="read-more">Insert Link→</a>
             </div>
           </div>
           
           <!-- News Item 2 -->
           <div class="news-card">
-            <div class="news-date">Nov 02, 2025</div>
+            <div class="news-date">Date</div>
             <div class="news-content">
-              <h3>CAST Lab researchers present at IEEE IV 2025</h3>
-              <a href="#" class="read-more">Read Full Story →</a>
+              <h3>Headline</h3>
+              <a href="#" class="read-more">Insert Link→</a>
             </div>
           </div>
           
           <!-- News Item 3 -->
           <div class="news-card">
-            <div class="news-date">Oct 18, 2025</div>
+            <div class="news-date">Date</div>
             <div class="news-content">
-              <h3>New grant awarded for smart sensing technologies</h3>
-              <a href="#" class="read-more">Read Full Story →</a>
+              <h3>Headline</h3>
+              <a href="#" class="read-more">Insert Link →</a>
             </div>
           </div>
         </div>
@@ -110,7 +108,7 @@ import MainLayout from '../layouts/MainLayout.astro';
             <img src="/img/castbot.png" alt="Featured News Image" />
             
             <a href="/news" class="ribbon-btn">
-              All News
+              All Publications
             </a>
           </div>
         </div>
@@ -177,13 +175,16 @@ import MainLayout from '../layouts/MainLayout.astro';
 
   .about-image {
     flex: 1;
+    position: relative;
   }
 
-  .about-image img.shadow-effect {
+
+
+  .about-image img {
     width: 100%;
     height: auto;
-    border-radius: 8px;
-    filter: drop-shadow(20px 20px 30px rgba(0, 0, 0, 0.2));
+    position: relative;
+    z-index: 1;
   }
 
   .about-text {
@@ -408,13 +409,12 @@ import MainLayout from '../layouts/MainLayout.astro';
     overflow: hidden;
     position: relative;
     min-height: 400px;
-    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
   }
 
   .feature-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
   }
 
   .ribbon-btn {

@@ -5,47 +5,40 @@ import MemberCard from '../components/MemberCard.astro';
 const teamMembers = {
   director: [
     {
-      name: 'Dr. John Doe',
-      title: 'Lab Director & Professor',
-      bio: 'Leading research in connected and autonomous vehicle systems with over 20 years of experience in control theory and machine learning.',
-      imageSrc: '/team-director.jpg'
+      name: 'Dr. Swami Gopalswamy',
+      title: 'Lab Director',
+      bio: 'Text',
+      imageSrc: '/img/tempheadshot.jpg'
     }
   ],
   postdocs: [
     {
-      name: 'Dr. Jane Smith',
+      name: 'Dr. Ajinkya Joglekar',
       title: 'Postdoctoral Researcher',
-      bio: 'Focuses on advanced sensor fusion and robust perception algorithms under adverse weather conditions.',
-      imageSrc: '/team-postdoc1.jpg'
-    },
-    {
-      name: 'Dr. Alan Turing',
-      title: 'Postdoctoral Researcher',
-      bio: 'Specializes in reinforcement learning for complex urban intersection navigation.',
+      bio: 'Text',
+      imageSrc: '/img/tempheadshot.jpg'
     }
   ],
   graduate: [
     {
-      name: 'Alice Johnson',
-      title: 'Graduate Student',
-      bio: 'Researching vehicle-to-infrastructure (V2I) communication protocols for smart city integration.',
+      name: 'Name',
+      title: 'PhD Student',
+      bio: 'Text',
+      imageSrc: '/img/tempheadshot.jpg'
     },
     {
-      name: 'Bob Williams',
-      title: 'Graduate Student',
-      bio: 'Developing novel intrusion detection systems for connected vehicle networks.',
+      name: 'Name',
+      title: 'Masters Student',
+      bio: 'Text',
+      imageSrc: '/img/tempheadshot.jpg'
     }
   ],
   undergraduate: [
     {
-      name: 'Charlie Brown',
+      name: 'Name',
       title: 'Undergraduate Researcher',
-      bio: 'Assisting in data collection and preliminary analysis for pedestrian safety models.',
-    },
-    {
-      name: 'Diana Prince',
-      title: 'Undergraduate Researcher',
-      bio: 'Developing visualization dashboards for autonomous platooning simulations.',
+      bio: 'Text',
+      imageSrc: '/img/tempheadshot.jpg'
     }
   ]
 };
@@ -54,12 +47,14 @@ const teamMembers = {
 <MainLayout title="People">
   <div class="people-page container">
     
-    <div class="page-title">
-      <h1>Meet the CAST Team</h1>
+    <div class="intro-section bg-light-section">
+      <div class="page-title">
+        <h1>Meet the CAST Team</h1>
+      </div>
+      <header class="team-header">
+        <img src="/img/groupphoto.JPG" alt="CAST Lab Team" class="pano-img" onerror="this.src='/home-truck-placeholder.jpg'" />
+      </header>
     </div>
-    <header class="team-header">
-      <img src="/img/groupphoto.jpg" alt="CAST Lab Team" class="pano-img" onerror="this.src='/home-truck-placeholder.jpg'" />
-    </header>
 
     <div class="team-sections">
       
@@ -105,14 +100,15 @@ const teamMembers = {
 
 <style>
   .people-page {
-    padding: var(--spacing-lg) 0 var(--spacing-xl) 0;
+    padding: 0 0 var(--spacing-xl) 0;
   }
 
   .team-header {
     position: relative;
     border-radius: 12px;
     overflow: hidden;
-    margin-bottom: var(--spacing-xl);
+    margin: 0 5% 0; /* Force spacing on sides */
+    border: 4px solid var(--secondary-maroon);
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
   }
 
@@ -121,7 +117,7 @@ const teamMembers = {
     height: 350px;
     object-fit: cover; /* Panoramic effect */
     display: block;
-    filter: brightness(0.8);
+    filter: brightness(1);
   }
 
   .page-title {

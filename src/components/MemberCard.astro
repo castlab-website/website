@@ -28,12 +28,13 @@ const { name, title, bio, imageSrc } = Astro.props;
   .member-card {
     display: flex;
     flex-direction: row;
-    width: 80%; /* Roughly 80% container width as spec'd */
+    width: 80%;
     margin: 0 auto;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     background-color: var(--white);
+    border: 2px solid var(--secondary-maroon);
   }
 
   /* Force stack on small screens */

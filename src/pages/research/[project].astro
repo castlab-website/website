@@ -2,38 +2,68 @@
 import MainLayout from '../../layouts/MainLayout.astro';
 
 export function getStaticPaths() {
-  // In a real app, this would fetch from a CMS or markdown files.
   return [
-    {params: {project: 'autonomous-platooning'}},
-    {params: {project: 'smart-intersections'}},
-    {params: {project: 'pedestrian-safety'}},
-    {params: {project: 'cybersecurity'}},
-    {params: {project: 'human-machine-interaction'}},
-    {params: {project: 'sensor-fusion'}},
+    {params: {project: 'hard-platooning'}},
+    {params: {project: 'Project1'}},
+    {params: {project: 'Project2'}},
+    {params: {project: 'Project3'}},
+    {params: {project: 'Project4'}},
   ];
 }
 
 const { project } = Astro.params;
 
-// Mock data fetch based on the slug
-const projectData = {
-  title: project.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
-  imageSrc: `/project-${project.split('-')[0]}.jpg`,
-  whatIsIt: `The ${project.replace(/-/g, ' ')} project focuses on advancing the state-of-the-art in connected and autonomous technologies. By leveraging real-time data and advanced algorithms, we are building systems that act as the foundation for the next generation of intelligent transportation.`,
-  whyNeeded: 'As urban environments become more congested and the demand for efficient transport grows, traditional systems are reaching their limits. This research addresses critical safety bottlenecks and provides scalable solutions for future infrastructure.',
-  whatCastIsDoing: 'Researchers at CAST lab are developing robust algorithms and conducting extensive real-world testing using our equipped vehicles to ensure these technologies perform safely under all conditions.',
-  publications: [
-    { title: 'Project-Specific Paper on Connected Vehicles Architecture', link: '#' },
-    { title: 'Scalable Frameworks for Autonomous Operations Safety', link: '#' }
-  ]
+const projectsDB: Record<string, any> = {
+  'hard-platooning': {
+    title: 'Hard Platooning',
+    imageSrc: '/img/tempProject.jpg',
+    whatIsIt: 'Text',
+    whyNeeded: 'Text',
+    whatCastIsDoing: 'Text',
+    publications: []
+  },
+  'Project1': {
+    title: 'Project',
+    imageSrc: '/img/tempProject.jpg',
+    whatIsIt: 'text',
+    whyNeeded: 'text',
+    whatCastIsDoing: 'text',
+    publications: []
+  },
+  'Project2': {
+    title: 'Project',
+    imageSrc: '/img/tempProject.jpg',
+    whatIsIt: 'text',
+    whyNeeded: 'text',
+    whatCastIsDoing: 'text',
+    publications: []
+  },
+  'Project3': {
+    title: 'Project',
+    imageSrc: '/img/tempProject.jpg',
+    whatIsIt: 'text',
+    whyNeeded: 'text',
+    whatCastIsDoing: 'text',
+    publications: []
+  },
+  'Project4': {
+    title: 'Project',
+    imageSrc: '/img/tempProject.jpg',
+    whatIsIt: 'text',
+    whyNeeded: 'text',
+    whatCastIsDoing: 'text',
+    publications: []
+  }
 };
+
+const projectData = projectsDB[project as string] || projectsDB['hard-platooning'];
 ---
 
 <MainLayout title={projectData.title}>
   <div class="container project-detail-page">
     
     <header class="project-header">
-      <img src={projectData.imageSrc} alt={projectData.title} class="header-image" onerror="this.src='/home-truck-placeholder.jpg'" />
+      <img src={projectData.imageSrc} alt={projectData.title} class="header-image" onerror="this.src='/img/tempProject.jpg'" />
       <div class="header-title-box">
         <h1>{projectData.title}</h1>
       </div>
@@ -137,7 +167,7 @@ const projectData = {
   }
 
   .content-box {
-    flex: 0 0 85%;
+    flex: 0 0 95%;
     padding: var(--spacing-xl);
     color: var(--white);
     position: relative;
@@ -145,7 +175,7 @@ const projectData = {
   }
 
   .empty-space {
-    flex: 0 0 15%;
+    flex: 0 0 5%;
   }
 
   .content-box h2 {
