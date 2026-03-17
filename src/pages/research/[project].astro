@@ -20,7 +20,8 @@ const projectsDB: Record<string, any> = {
     whatIsIt: 'Text',
     whyNeeded: 'Text',
     whatCastIsDoing: 'Text',
-    publications: []
+    publications: [],
+    topic: 'Topic B'
   },
   'Project1': {
     title: 'Project',
@@ -28,7 +29,8 @@ const projectsDB: Record<string, any> = {
     whatIsIt: 'text',
     whyNeeded: 'text',
     whatCastIsDoing: 'text',
-    publications: []
+    publications: [],
+    topic: 'Topic A'
   },
   'Project2': {
     title: 'Project',
@@ -36,7 +38,8 @@ const projectsDB: Record<string, any> = {
     whatIsIt: 'text',
     whyNeeded: 'text',
     whatCastIsDoing: 'text',
-    publications: []
+    publications: [],
+    topic: 'Topic B'
   },
   'Project3': {
     title: 'Project',
@@ -44,7 +47,8 @@ const projectsDB: Record<string, any> = {
     whatIsIt: 'text',
     whyNeeded: 'text',
     whatCastIsDoing: 'text',
-    publications: []
+    publications: [],
+    topic: 'Topic C'
   },
   'Project4': {
     title: 'Project',
@@ -52,7 +56,8 @@ const projectsDB: Record<string, any> = {
     whatIsIt: 'text',
     whyNeeded: 'text',
     whatCastIsDoing: 'text',
-    publications: []
+    publications: [],
+    topic: 'Topic A'
   }
 };
 
@@ -236,7 +241,7 @@ const projectData = projectsDB[project as string] || projectsDB['hard-platooning
 
     .content-box {
       flex: 0 0 100%;
-      clip-path: none; /* Remove chevron on mobile for better text fit */
+      clip-path: none; 
       border-radius: 8px;
     }
     

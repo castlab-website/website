@@ -2,50 +2,63 @@
 import MainLayout from '../../layouts/MainLayout.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
 
-// Placeholder data for projects
+// Placeholder data for projects (now with `topic`)
 const projects = [
   {
     id: 'hard-platooning',
     title: 'Hard Platooning',
     imageSrc: '/img/tempProject.jpg',
     description: 'Summary',
+    topic: 'Topic B',
   },
   {
     id: 'Project1',
     title: 'Temp',
     imageSrc: '/img/tempProject.jpg',
     description: 'Summary',
+    topic: 'Topic A',
   },
   {
     id: 'Project2',
     title: 'Temp',
     imageSrc: '/img/tempProject.jpg',
     description: 'Summary',
+    topic: 'Topic B',
   },
   {
     id: 'Project3',
     title: 'Temp',
     imageSrc: '/img/tempProject.jpg',
     description: 'Summary',
+    topic: 'Topic C',
   },
   {
     id: 'Project4',
     title: 'Temp',
     imageSrc: '/img/tempProject.jpg',
     description: 'Summary',
+    topic: 'Topic A',
   },
 ];
+
+const filteredProjects = projects;
 ---
 
 <MainLayout title="Research Projects">
-  <div class="container research-page">
-    <header class="page-header">
-      <h1>Our Research Projects !</h1>
-    </header>
+  <!-- Hero -->
+  <section class="hero bg-secondary-red">
+    <div class="container hero-inner">
+      <h1 class="hero-title text-center fade-in">OUR RESEARCH PROJECTS</h1>
+      <p class="hero-sub text-center fade-in">About our research text.</p>
+      
+    </div>
+  </section>
 
+  <!-- Projects grid -->
+  <div class="container" style="padding: var(--spacing-xl) 0;">
     <div class="projects-grid">
-      {projects.map((project) => (
-        <ProjectCard 
+      {filteredProjects.map((project) => (
+        <ProjectCard
           title={project.title}
           imageSrc={project.imageSrc}
           description={project.description}
@@ -54,53 +67,24 @@ const projects = [
       ))}
     </div>
   </div>
+
+  <!-- Collaborate CTA -->
+  <section class="collab">
+    <div class="container">
+      <h2>INTERESTED IN COLLABORATING?</h2>
+      <p>Temp text</p>
+      <!-- <div style="margin-top: var(--spacing-md);"><a class="btn" href="/contact">CONTACT OUR LAB</a></div> -->
+    </div>
+  </section>
 </MainLayout>
 
 <style>
-  .research-page {
-    padding: var(--spacing-xl) var(--spacing-md);
-  }
+  .hero-inner { padding: var(--spacing-xl) 0; display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .hero-title { letter-spacing: 2px; color: white; margin: 0; }
+  .hero-sub { margin-top: var(--spacing-sm); color: white; max-width: 60ch; }
 
-  .page-header {
-    text-align: center;
-    margin-bottom: var(--spacing-xl);
-  }
-
-  .page-header h1 {
-    font-size: 3rem;
-    color: var(--primary-maroon);
-    font-family: var(--font-heading);
-    text-transform: none; 
-  }
-
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--spacing-lg);
-  }
-
-  @media (max-width: 992px) {
-    .projects-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (max-width: 600px) {
-    .projects-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  /* Staggered project reveal */
-  .projects-grid > * { opacity: 0; transform: translateY(12px); animation: slideUp 0.55s ease-out forwards; }
-  .projects-grid > *:nth-child(1) { animation-delay: 0.08s; }
-  .projects-grid > *:nth-child(2) { animation-delay: 0.14s; }
-  .projects-grid > *:nth-child(3) { animation-delay: 0.20s; }
-  .projects-grid > *:nth-child(4) { animation-delay: 0.26s; }
-  .projects-grid > *:nth-child(5) { animation-delay: 0.32s; }
-
-  .page-header h1 { position: relative; display: inline-block; }
-  .page-header h1::after { content: ''; position: absolute; left: 0; bottom: -10px; width: 0; height: 4px; background: var(--primary-maroon); transition: width 0.8s ease-out; }
-  .page-header h1 { animation: fadeIn 0.6s ease-out forwards; }
-  .page-header h1[style]::after, .page-header h1 { width: auto; }
+  /* Page load timing to match other pages' hero animation */
+  .hero-title.fade-in { animation-delay: 0.08s; }
+  .hero-sub.fade-in { animation-delay: 0.16s; }
+  h2 { text-transform: uppercase; }
 </style>

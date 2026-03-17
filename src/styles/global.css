@@ -26,6 +26,11 @@
   --transition-normal: 0.3s ease;
 }
 
+/* Alias for spec's "secondary red" */
+:root {
+  --secondary-red: var(--secondary-maroon);
+}
+
 /* Rest of the Reset and Base Styles */
 *,
 *::before,
@@ -105,6 +110,46 @@ img {
 .bg-light {
   background-color: var(--light-gray);
 }
+
+/* Secondary red utilities (hero background, borders) */
+.bg-secondary-red { background-color: var(--secondary-red); color: var(--white); }
+.border-secondary-red { border: 2px solid var(--secondary-red); }
+
+/* Hero diagonal overlay */
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; right: 0; bottom: 0;
+  background: linear-gradient(120deg, rgba(0,0,0,0.22) 30%, rgba(255,255,255,0.02) 100%);
+  pointer-events: none;
+}
+
+.hero .hero-inner { padding: var(--spacing-xl) 0; }
+.hero-title { font-size: 3rem; font-family: var(--font-heading); margin-bottom: var(--spacing-sm); text-transform: uppercase; }
+.hero-sub { max-width: 900px; font-size: 1.05rem; opacity: 0.9; }
+
+/* Filter chips */
+.chips { display:flex; gap:0.75rem; flex-wrap:wrap; margin: var(--spacing-md) 0; }
+.chip { background: var(--light-gray); padding: 0.4rem 0.9rem; border-radius: 999px; font-weight:600; color:var(--dark-gray); box-shadow: 0 2px 6px rgba(0,0,0,0.06); display:inline-flex; align-items:center; }
+.chip:hover, .chip:focus { background: var(--secondary-red); color: var(--white); cursor: pointer; outline: none; box-shadow: 0 6px 18px rgba(115,47,47,0.12); }
+.chip.active { background: var(--secondary-red); color: var(--white); }
+
+/* Card badges */
+.badge { display:inline-block; padding:0.25rem 0.5rem; border-radius:6px; font-size:0.72rem; font-weight:700; color:var(--secondary-red); background: rgba(115,47,47,0.06); margin-right:0.5rem; }
+.badge.ghost { background: rgba(0,0,0,0.04); color:var(--dark-gray); }
+
+/* Collaborate CTA */
+.collab { background: var(--light-gray); padding: var(--spacing-xl) 0; text-align: center; }
+.collab .btn { background: var(--secondary-red); }
+
+/* Project card grid tweaks */
+.projects-grid { display:grid; grid-template-columns: repeat(3,1fr); gap: var(--spacing-lg); }
+@media (max-width: 992px) { .projects-grid { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 600px) { .projects-grid { grid-template-columns: 1fr; } }
 
 /* Animation Utils */
 .fade-in {
