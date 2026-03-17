@@ -3,6 +3,5 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-    site: 'https://castlab-website.github.io/',
-    //base: 'website/',
+    site: 'https://castlab-website.github.io',
 });
