@@ -4,9 +4,9 @@ import MainLayout from '../../layouts/MainLayout.astro';
 export function getStaticPaths() {
   return [
     {params: {project: 'hard-platooning'}},
-    {params: {project: 'Project1'}},
-    {params: {project: 'Project2'}},
-    {params: {project: 'Project3'}},
+    {params: {project: 'phev'}},
+    {params: {project: 'semantic-world-models'}},
+    {params: {project: 'autonomous-navigation-stack'}},
     {params: {project: 'Project4'}},
   ];
 }
@@ -17,38 +17,38 @@ const projectsDB: Record<string, any> = {
   'hard-platooning': {
     title: 'Hard Platooning',
     imageSrc: '/img/tempProject.jpg',
-    whatIsIt: 'Text',
-    whyNeeded: 'Text',
-    whatCastIsDoing: 'Text',
-    publications: [],
-    topic: 'Topic B'
+    whatIsIt: 'Hard Platooning is a novel vehicle platooning technology in which multiple vehicles are physically linked using a product called the Hard Connect. Unlike traditional Leader-Follower (LF) systems, where robotic vehicles follow a human-driven or remotely operated lead vehicle using wireless communication, Hard Platooning uses a physical tether. This setup allows one person to control multiple vehicles at the same time, reducing the workload for soldiers and improving coordination. The physical connection 1) Improves cyber security by using passive sensors and secure wired connections for data transfer, 2) Reduces cost, using simple geometry sensors and lightweight computations in place of expensive LiDAR, camera, and compute systems, and 3) Adds a layer of safety to physically restrain the vehicles in the event of mechanical failure.',
+    whyNeeded: 'Hard platooning provides benefits for the U.S. Military, transit systems, and the trucking industry by making transportation safer, more reliable, and more efficient. Transit agencies, which prioritize safety around pedestrians and cyclists, struggle to adopt fully autonomous vehicles due to safety concerns. This new system uses a human-driven lead vehicle with automated followers connected by a smart physical tether, solving these worries. This technology can solve labor shortages and boost productivity, without compromising safety for the trucking industry. For the military, this technology can enhance path tracking and expand ground vehicle capabilities. Unlike fully autonomous vehicles, this system uses the driver to bypass unpredictable obstacles, like bad weather and cybersecurity risks. The tether will transmit data between vehicles, ensuring they can follow the same path without needing changes to infrastructure.',
+    whatCastIsDoing: 'Current research focuses on accurate state estimation and control of each following vehicle to enable exact path following of the lead vehicle. Work involves analysis of system dynamics, development of nonlinear control strategies, and full-scale experimentation on both Class 8 trucks and transit buses. Successful implementation of this technology will support the movement of robotic assets in the defense sector and provide a scalable, reliable alternative for commercial and public transportation applications.',
+    publications: [
+      "S. Gopalswamy, M. Ashley, and D. Franklin, \"Automated vehicle platooning systems and associated methods,\" U.S. Patent 12 518 633, Jan. 6, 2026.",
+      "M. Ashley, D. McMullan, and S. Gopalswamy, \"Physically cooperating autonomous ground vehicles,\" SAE Technical Paper, presented at the 2023 NDIA Michigan Chapter Ground Vehicle Systems Engineering and Technology Symposium, Aug. 10, 2023.",
+      "D. J. Franklin, M. Ashley, and S. Gopalswamy, \"Application of Nonlinear Control for Hard Truck Platooning,\" in 2022 International Conference on Connected Vehicle and Expo (ICCVE), 2022, pp. 1-6."
+    ],
   },
-  'Project1': {
-    title: 'Project',
+  'phev': {
+    title: 'Parallel Hybrid Electric Vehicle (PHEV) Modeling & Simulation',
+    imageSrc: '/img/tempProject.jpg',
+    whatIsIt: 'This project entails a comprehensive physics-based simulation model of a 12-ton parallel hybrid electric truck developed in MATLAB/Simulink. The model integrates a diesel engine, dual electric motors (MG1 for assist/generation and MG2 for main traction), a  battery management system, and thermal management with radiator cooling. This was developed for a GDLS workshop.',
+    whyNeeded: 'CAST Lab developed this model to understand powertrain dynamics and component interactions in parallel hybrid trucks. The work focuses on thermal management design, and validating control strategies through simulation. We use real manufacturer data from Dana and BorgWarner to ensure the model reflects hardware behavior. This provides a foundation for testing different configurations and operating strategies without requiring physical prototypes, supporting research in commercial vehicle electrification.',
+    whatCastIsDoing: 'Future work will involve on having variant subsystems to test different torque split strategies and alternative congifugurations (P2/P4).',
+    publications: ["https://github.com/AtharvaBilgi/PHEV_Modelling"],  
+  },
+  'semantic-world-models': {
+    title: 'Semantic World Models for Reasoning and Decision-Making in Uncertain Environments',
     imageSrc: '/img/tempProject.jpg',
     whatIsIt: 'text',
     whyNeeded: 'text',
     whatCastIsDoing: 'text',
     publications: [],
-    topic: 'Topic A'
   },
-  'Project2': {
-    title: 'Project',
+  'autonomous-navigation-stack': {
+    title: 'Sim-to-Real Autonomous Navigation Stack for Drive-By-Wire Vehicles',
     imageSrc: '/img/tempProject.jpg',
-    whatIsIt: 'text',
-    whyNeeded: 'text',
-    whatCastIsDoing: 'text',
+    whatIsIt: 'This project focuses on developing a sim-to-real autonomous navigation stack for drive-by-wire vehicles using ROS2, integrating AMCL-based localization, NAV2 path planning, and a custom Stanley lateral controller with proportional longitudinal control to achieve closed-loop autonomous driving in mapped environments.',
+    whyNeeded: 'Bridging the gap between simulation and real-world autonomous vehicle deployment requires validated software stacks tested on production vehicle platforms. A fully integrated ROS2 autonomy stack on a drive-by-wire vehicle provides a realistic testbed for evaluating localization accuracy, controller performance, and sensor fusion under real dynamic conditions.',
+    whatCastIsDoing: 'CAST Lab is developing and validating a complete autonomous navigation pipeline on the Lincoln MKZ, including custom NAV2 controller plugins, Stanley path tracking, and a sensor fusion architecture combining lidar-based AMCL localization with wheel odometry. Current research focuses on improving localization robustness, controller stability across varying speeds, and seamless transition from simulation to real vehicle deployment.',
     publications: [],
-    topic: 'Topic B'
-  },
-  'Project3': {
-    title: 'Project',
-    imageSrc: '/img/tempProject.jpg',
-    whatIsIt: 'text',
-    whyNeeded: 'text',
-    whatCastIsDoing: 'text',
-    publications: [],
-    topic: 'Topic C'
   },
   'Project4': {
     title: 'Project',
@@ -56,9 +56,7 @@ const projectsDB: Record<string, any> = {
     whatIsIt: 'text',
     whyNeeded: 'text',
     whatCastIsDoing: 'text',
-    publications: [],
-    topic: 'Topic A'
-  }
+    publications: [],  }
 };
 
 const projectData = projectsDB[project as string] || projectsDB['hard-platooning'];
@@ -109,13 +107,12 @@ const projectData = projectsDB[project as string] || projectsDB['hard-platooning
         <div class="content-box bg-secondary-maroon reverse-chevron-box">
           <h2>Select Publications & Links</h2>
           <ul class="publications-list">
-            {projectData.publications.map(pub => (
-              <li><a href={pub.link}>{pub.title}</a></li>
+            {projectData.publications.map((pub) => (
+              <li>{pub}</li>
             ))}
           </ul>
         </div>
       </section>
-
     </div>
   </div>
 </MainLayout>
