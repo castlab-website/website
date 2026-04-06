@@ -6,7 +6,7 @@ This repository contains the source code and configuration files for the laborat
 1) Install Node.js and the npm package manager
 2) Clone the repo 
 3) Cd into repo and run "npm install". This downloads all the dependencies listed in package.json
-4) To run the website locally, use "npm run dev". Note: that if you run into Node.js version issue telling you to upgrade, running "nvm use —lts" and then "npm run rev" may help.
+4) To run the website locally, use "npm run dev". Note: that if you run into Node.js version issue telling you to upgrade, running "nvm use —-lts" and then "npm run rev" may help.
 
 ## Deployment & Hosting
 The website is published and hosted via **GitHub Pages**. Deployment is fully automated through GitHub Actions. 
@@ -67,8 +67,8 @@ The site utilizes localized data structures to populate its pages. To update the
 1. When developing locally with "npm run dev", it times out without you noticing. If pages aren't loading properly or changes made aren't being reflected, restarting your host.
 
 ## To Do
-1. Downsampling homepage image for less pixels so that it renders quicker
+1. Add in project images
 2. Add in another tab for bcdc affiliations etc.
 3. Edit contact info in footer and people's page
-4. Edit publications page
-5. Edit homepage to match information from rest of website
+5. Edit homepage projects match information from rest of website
+6. Add links to people's profiles
