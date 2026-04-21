@@ -7,7 +7,6 @@ const teamMembers = {
     {
       name: 'Dr. Swaminathan Gopalswamy',
       title: 'Lab Director',
-      bio: 'Bio Text Here',
       imageSrc: '/img/gopalswamy.jpg'
     }
   ],
@@ -15,8 +14,8 @@ const teamMembers = {
     {
       name: 'Dr. Ajinkya Joglekar',
       title: 'Senior Research Engineer',
-      bio: 'Text',
-      imageSrc: '/img/tempheadshot.jpg'
+      bio: 'Ajinkya Joglekar is a Senior Research Engineer at CAST Lab with a Ph.D. in Automotive Engineering, specializing in air-ground robotics across both on-road and off-road domains. His research focuses on data-driven modeling, learning, and control techniques for complex robotic systems. His current work involves reinforcement learning for gait planning, experiential modeling of robot–environment dynamics using semantic scene graphs for improved planning and control, and aerial perception systems with applications in disaster relief robotics.',
+      imageSrc: '/img/ajinkyajoglekar.jpg'
     }
   ],
   graduate: [
@@ -29,14 +28,14 @@ const teamMembers = {
     {
       name: 'Yash Raj Sharma',
       title: 'PhD Student',
-      bio: 'Bio Text Here',
+      bio: 'Yash Sharma is a PhD student in the Department of Aerospace Engineering at Texas A&M University. He joined the CAST Lab in Spring 2025 and currently serves as a Graduate Research Assistant. His research focuses on integrating semantic reasoning with probabilistic modeling to support decision-making in complex and uncertain environments. He develops Semantic World Model (SWM)-based frameworks for representing and reasoning over structured domain knowledge, integrated with probabilistic methods to handle uncertainty. This work supports efficient planning and adaptive decision-making for multi-agent systems, with applications in robotics and autonomous navigation. He has published in IEEE Transactions on Aerospace and Electronic Systems and Proceedings of the Institution of Mechanical Engineers, Part G: Journal of Aerospace Engineering, along with contributions to international conferences. His current research interests include robotics, planning and reasoning, control and guidance, and multi-agent systems. Outside of his research, he enjoys cooking, listening to music, and reading books.',
       imageSrc: '/img/yashsharma.JPG'
     },
     {
       name: 'Yi Ling Wu',
       title: 'PhD Student',
       bio: 'Bio Text Here',
-      imageSrc: '/img/tempheadshot.jpg'
+      imageSrc: '/img/yilingwu.jpg'
     },
     {
       name: 'Atharva Pravin Bilgi',
@@ -59,22 +58,28 @@ const teamMembers = {
     {
       name: 'Jordan Runyan',
       title: 'Masters Student',
-      bio: 'Bio Text Here',
+      bio: 'Jordan Runyan is a Graduate Student in the Department of Mechanical Engineering at Texas A&M University. He joined the CAST Lab in Spring 2025. In addition to his academic research, Jordan serves as a Technologist II for the Air Ground Coordination Autonomy team at the Bush Combat Development Complex (BCDC). Before pursuing his graduate studies at Texas A&M, he gained extensive technical expertise as a full-time gunsmith, working heavily within the firearm industry. Jordan’s research centers on the development of Crash Safe Robots. His work integrates generative design and advanced material creation to optimize robotic components for extreme durability. By engineering structures specifically designed to survive high-impact falls and crashes, his research supports the reliability of autonomous systems in unpredictable or hazardous operational environments.',
       imageSrc: '/img/tempheadshot.jpg'
+    },
+    {
+      name: 'Jacob Roberson',
+      title: 'Masters Student',
+      bio:'Jacob Roberson is a Masters student in the Department of Mechanical Engineering at Texas A&M University.  He joined the CAST lab Spring 2026 and currently serves a Graduate Research Assistant.  His research focuses on quadcopter dynamics and target tracking.  Jacob has worked in the manufacturing sector as engineer specializing in in mechatronics systems, advanced troubleshooting of automated equipment, and designing / validating new equipment.  Jacob served in the Army for five years as an engineer officer, and he received his undergraduate mechanical engineering degree from the University of Colorado Boulder.',
+      imageSrc: '/img/jacobroberson.png'
     }
   ],
   undergraduate: [
     {
       name: 'Justin Simms',
       title: 'Undergraduate Student',
-      bio: 'Bio Text Here',
-      imageSrc: '/img/tempheadshot.jpg'
+      bio: 'Justin Simms is an Undergraduate student in the Department of Mechanical Engineering at Texas A&M University. He joined the CAST Lab in Spring 2025 as an undergraduate student researcher. Justin’s research focus is designing and testing autonomous robots. His current research interests include autonomous robots, human robot interaction, and multiagent systems.',
+      imageSrc: '/img/justinsimms.jpg'
     },
     {
       name: 'Hayden Sadd',
       title: 'Undergraduate Student',
-      bio: 'Bio Text Here',
-      imageSrc: '/img/tempheadshot.jpg'
+      bio: ' Hayden Sadd is a Senior Mechanical Engineering student at Texas A&M University, graduating Spring 2026. He is currently dedicated to his Capstone project, MARTIN, a mobile autonomous rover that picks up and stores litter on the sides of roadways. MARTIN combines 2D LiDAR for obstacle avoidance, a realsense D435i camera running a computer vision model to identify litter and return coordinates relative to the rover, a 6 degree of freedom robotic arm for litter retrieval, and RTK GPS with magnetometer for precise global positioning and heading angle to allow for efficient, autonomous litter collection while keeping a safe distance from the road. The Capstone team is competing in the SICK LiDAR $10k challenge, participating in an international collaboration with a French Engineering University (ENISE), and collaborating with a group of Marketing students at May’s Business School. Hayden joined the CAST Lab in Fall 2025 and collaborates with members of the Lab while developing MARTIN. He will be continuing his work in the lab while completing his Master of Science in Mechanical Engineering as a Graduate Researcher in Fall 2026. Outside of the lab, he enjoys piano, basketball, and video games with friends.',
+      imageSrc: '/img/haydensadd.jpg'
     }
   ]
 };
@@ -104,7 +109,7 @@ const teamMembers = {
       </section>
 
       <section class="role-section bg-light-section">
-        <h2>Postdoctoral Researchers</h2>
+        <h2>Staff</h2>
         <div class="members-list">
           {teamMembers.postdocs.map(member => (
             <MemberCard {...member} />
@@ -181,9 +186,8 @@ const teamMembers = {
   }
 
   .bg-light-section {
-    /* Slight background alternating for visual break */
     background-color: var(--light-gray);
-    margin: 0 calc(-50vw + 50%); /* Full bleed trick */
+    margin: 0 calc(-50vw + 50%);
     padding: var(--spacing-xl) calc(50vw - 50%);
   }
 

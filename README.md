@@ -67,8 +67,7 @@ The site utilizes localized data structures to populate its pages. To update the
 1. When developing locally with "npm run dev", it times out without you noticing. If pages aren't loading properly or changes made aren't being reflected, restarting your host.
 
 ## To Do
-1. Add in project images
-2. Add in another tab for bcdc affiliations etc.
-3. Edit contact info in footer and people's page
-5. Edit homepage projects match information from rest of website
-6. Add links to people's profiles
+1. Add in space for bcdc affiliations etc.
+2. Edit contact email in footer and people's page
+3. Add links to people's profiles
+4. Way in the future: Redo Individual Projects page for better formatting to add project information
