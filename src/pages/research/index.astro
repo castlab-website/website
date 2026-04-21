@@ -2,42 +2,36 @@
 import MainLayout from '../../layouts/MainLayout.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
 
-// Placeholder data for projects (now with `topic`)
 const projects = [
   {
     id: 'hard-platooning',
     title: 'Hard Platooning',
-    imageSrc: '/img/tempProject.jpg',
-    description: 'Summary',
-    topic: 'Topic B',
+    imageSrc: '/img/hardplatooning.png',
+    description: 'A novel vehicle platooning technology in which multiple vehicles are physically linked using a product called the Hard Connect',
   },
   {
-    id: 'Project1',
-    title: 'Temp',
+    id: 'phev',
+    title: 'Parallel Hybrid Electric Vehicle (PHEV) Modeling & Simulation',
     imageSrc: '/img/tempProject.jpg',
-    description: 'Summary',
-    topic: 'Topic A',
+    description: 'A comprehensive physics-based simulation model of a 12-ton parallel hybrid electric truck developed in MATLAB/Simulink',
   },
   {
-    id: 'Project2',
-    title: 'Temp',
+    id: 'semantic-world-models',
+    title: 'Semantic World Models for Reasoning and Decision-Making in Uncertain Environments',
     imageSrc: '/img/tempProject.jpg',
-    description: 'Summary',
-    topic: 'Topic B',
+    description: 'Advancing semantic mapping by using conventional artificial intelligence approaches with domain knowledge to model complex environments more effectively',
   },
   {
-    id: 'Project3',
-    title: 'Temp',
-    imageSrc: '/img/tempProject.jpg',
-    description: 'Summary',
-    topic: 'Topic C',
+    id: 'autonomous-navigation-stack',
+    title: 'Sim-to-Real Autonomous Navigation Stack for Drive-By-Wire Vehicles',
+    imageSrc: '/img/navstack.png',
+    description: 'Developing a full-stack autonomous navigation on a Lincoln MKZ platform',
   },
   {
-    id: 'Project4',
-    title: 'Temp',
-    imageSrc: '/img/tempProject.jpg',
-    description: 'Summary',
-    topic: 'Topic A',
+    id: 'castbot-gamma',
+    title: 'CASTBot Gamma',
+    imageSrc: '/img/castbotgamma.jpg',
+    description: 'Designing a compact, hypermobile robot capable of traversing diverse environments and overcome obstacles such as stairs, gaps, and debris',
   },
 ];
 
@@ -49,7 +43,7 @@ const filteredProjects = projects;
   <section class="hero bg-secondary-red">
     <div class="container hero-inner">
       <h1 class="hero-title text-center fade-in">OUR RESEARCH PROJECTS</h1>
-      <p class="hero-sub text-center fade-in">About our research text.</p>
+      <p class="hero-sub text-center fade-in">Our vision is to advance technology that enhances human safety and security through the strategic integration of connectivity and autonomy. We focus on addressing fundamental research questions in the analysis, optimal design, and functional verification of large-scale, multidisciplinary systems.</p>
       
     </div>
   </section>
@@ -81,7 +75,7 @@ const filteredProjects = projects;
 <style>
   .hero-inner { padding: var(--spacing-xl) 0; display: flex; flex-direction: column; align-items: center; text-align: center; }
   .hero-title { letter-spacing: 2px; color: white; margin: 0; }
-  .hero-sub { margin-top: var(--spacing-sm); color: white; max-width: 60ch; }
+  .hero-sub { margin-top: var(--spacing-md); color: white; max-width: 90ch; font-size: 15px;}
 
   /* Page load timing to match other pages' hero animation */
   .hero-title.fade-in { animation-delay: 0.08s; }
