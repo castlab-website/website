@@ -4,10 +4,10 @@ import MainLayout from '../../layouts/MainLayout.astro';
 export function getStaticPaths() {
   return [
     {params: {project: 'hard-platooning'}},
-    {params: {project: 'Project1'}},
-    {params: {project: 'Project2'}},
-    {params: {project: 'Project3'}},
-    {params: {project: 'Project4'}},
+    {params: {project: 'phev'}},
+    {params: {project: 'semantic-world-models'}},
+    {params: {project: 'autonomous-navigation-stack'}},
+    {params: {project: 'castbot-gamma'}},
   ];
 }
 
@@ -16,52 +16,54 @@ const { project } = Astro.params;
 const projectsDB: Record<string, any> = {
   'hard-platooning': {
     title: 'Hard Platooning',
-    imageSrc: '/img/tempProject.jpg',
-    whatIsIt: 'Text',
-    whyNeeded: 'Text',
-    whatCastIsDoing: 'Text',
-    publications: [],
-    topic: 'Topic B'
+    imageSrc: '/img/hardplatooning.jpg',
+    whatIsIt: 'Hard Platooning is a novel vehicle platooning technology in which multiple vehicles are physically linked using a product called the Hard Connect. Unlike traditional Leader-Follower (LF) systems, where robotic vehicles follow a human-driven or remotely operated lead vehicle using wireless communication, Hard Platooning uses a physical tether. This setup allows one person to control multiple vehicles at the same time, reducing the workload for soldiers and improving coordination. The physical connection 1) Improves cyber security by using passive sensors and secure wired connections for data transfer, 2) Reduces cost, using simple geometry sensors and lightweight computations in place of expensive LiDAR, camera, and compute systems, and 3) Adds a layer of safety to physically restrain the vehicles in the event of mechanical failure.',
+    whyNeeded: 'Hard platooning provides benefits for the U.S. Military, transit systems, and the trucking industry by making transportation safer, more reliable, and more efficient. Transit agencies, which prioritize safety around pedestrians and cyclists, struggle to adopt fully autonomous vehicles due to safety concerns. This new system uses a human-driven lead vehicle with automated followers connected by a smart physical tether, solving these worries. This technology can solve labor shortages and boost productivity, without compromising safety for the trucking industry. For the military, this technology can enhance path tracking and expand ground vehicle capabilities. Unlike fully autonomous vehicles, this system uses the driver to bypass unpredictable obstacles, like bad weather and cybersecurity risks. The tether will transmit data between vehicles, ensuring they can follow the same path without needing changes to infrastructure.',
+    whatCastIsDoing: 'Current research focuses on accurate state estimation and control of each following vehicle to enable exact path following of the lead vehicle. Work involves analysis of system dynamics, development of nonlinear control strategies, and full-scale experimentation on both Class 8 trucks and transit buses. Successful implementation of this technology will support the movement of robotic assets in the defense sector and provide a scalable, reliable alternative for commercial and public transportation applications.',
+    publications: [
+      "S. Gopalswamy, M. Ashley, and D. Franklin, \"Automated vehicle platooning systems and associated methods,\" U.S. Patent 12 518 633, Jan. 6, 2026.",
+      "M. Ashley, D. McMullan, and S. Gopalswamy, \"Physically cooperating autonomous ground vehicles,\" SAE Technical Paper, presented at the 2023 NDIA Michigan Chapter Ground Vehicle Systems Engineering and Technology Symposium, Aug. 10, 2023.",
+      "D. J. Franklin, M. Ashley, and S. Gopalswamy, \"Application of Nonlinear Control for Hard Truck Platooning,\" in 2022 International Conference on Connected Vehicle and Expo (ICCVE), 2022, pp. 1-6."
+    ],
   },
-  'Project1': {
-    title: 'Project',
-    imageSrc: '/img/tempProject.jpg',
-    whatIsIt: 'text',
-    whyNeeded: 'text',
-    whatCastIsDoing: 'text',
-    publications: [],
-    topic: 'Topic A'
+  'phev': {
+    title: 'Parallel Hybrid Electric Vehicle (PHEV) Modeling & Simulation',
+    imageSrc: '/img/tempProject2.jpg',
+    whatIsIt: 'This project entails a comprehensive physics-based simulation model of a 12-ton parallel hybrid electric truck developed in MATLAB/Simulink. The model integrates a diesel engine, dual electric motors (MG1 for assist/generation and MG2 for main traction), a  battery management system, and thermal management with radiator cooling. This was developed for a GDLS workshop.',
+    whyNeeded: 'CAST Lab developed this model to understand powertrain dynamics and component interactions in parallel hybrid trucks. The work focuses on thermal management design, and validating control strategies through simulation. We use real manufacturer data from Dana and BorgWarner to ensure the model reflects hardware behavior. This provides a foundation for testing different configurations and operating strategies without requiring physical prototypes, supporting research in commercial vehicle electrification.',
+    whatCastIsDoing: 'Future work will involve on having variant subsystems to test different torque split strategies and alternative congifugurations (P2/P4).',
+    publications: ["https://github.com/AtharvaBilgi/PHEV_Modelling"],  
   },
-  'Project2': {
-    title: 'Project',
-    imageSrc: '/img/tempProject.jpg',
-    whatIsIt: 'text',
-    whyNeeded: 'text',
-    whatCastIsDoing: 'text',
-    publications: [],
-    topic: 'Topic B'
+  'semantic-world-models': {
+    title: 'Semantic World Models for Reasoning and Decision-Making in Uncertain Environments',
+    imageSrc: '/img/tempProject2.jpg',
+    whatIsIt: 'Semantic mapping refers to the process of constructing a representation of the environment that not only captures spatial information but also encodes the meaning of objects and regions within it. In this framework, elements of the environment are assigned semantic labels—for example, a robot may classify a region as traversable terrain, obstacle, or restricted area. This enables the robot to reason about its surroundings rather than simply reacting to raw sensor data. However, current approaches are often limited by their reliance on predefined datasets and static models. As a result, adapting to new environments or unseen conditions frequently requires retraining or redesigning the system. This limitation becomes particularly significant in complex scenarios where multiple factors—such as terrain type, environmental conditions, and task constraints—interact in non-trivial ways. ',
+    whyNeeded: '<p>Semantic mapping plays a critical role in enabling robots to transition from perception-driven behavior to knowledge-driven decision-making. By understanding <i>what</i> exists in the environment and <i>how it affects actions</i>, robots can make more informed and robust decisions.</p><br> <p>This capability is particularly important in:</p> <ul style="padding-left: 80px;"> <li><strong>Off-road navigation</strong>, where terrain properties directly influence mobility</li> <li><strong>Multi-agent systems</strong>, where shared understanding of the environment improves coordination</li><li><strong>Dynamic environments</strong>, where conditions evolve over time</li></ul><br><p>The integration of semantic understanding with uncertainty-aware planning has wide-ranging applications:</p><ul style="padding-left: 80px;"><li><strong>Disaster Response:</strong><br>Robots can interpret complex environments affected by events such as earthquakes or floods, enabling safer and more efficient search and rescue operations while reducing risk to human responders.</li><li><strong>Search and Rescue:</strong><br>Semantic awareness allows robots to identify critical features such as blocked paths, unstable terrain, or safe navigation zones, improving mission success rates. </li><li><strong>Autonomous Reconnaissance:</strong><br>In defense and surveillance scenarios, robots can operate autonomously in unknown environments, adapting their decisions based on evolving situational context.</li></ul>',
+    whatCastIsDoing: 'At CAST, we advance semantic mapping by using conventional artificial intelligence approaches with domain knowledge to model complex environments more effectively. In particular, we leverage description logics and ontology-based representations to encode relationships between entities in the environment, enabling robots to move beyond simple perception toward meaningful reasoning.By incorporating these semantic models, robots are able to make knowledge-driven inferences based on defined rules, rather than relying solely on pre-trained datasets. This allows systems to adapt more effectively to new and previously unseen environments without requiring complete retraining. Furthermore, we are working towards how semantic mapping can be tightly coupled with uncertainty-aware decision-making frameworks.',
+    publications: ["A. Bhamri and S. Gopalswamy, “Semantic world model for off-road environments for autonomous navigation and decision making,” in 2nd International Workshop on Working to- wards Ontology-based Standards for Robotics and Automation (WOSRA), 2023.",
+      "A. Medellin, A. Bhamri, R. Langari, and S. Gopalswamy, “Real-time semantic segmentation using hyperspectral images for unstructured and unknown environments,” in 13th Workshop on Hyperspectral Imaging and Signal Processing: Evolution in Remote Sensing (WHISPERS), pp. 1–5, 2023.",
+      "A. Bhamri, A.Medellin, D. Grabowsky, D. Mikulski, R. Lanagri,and S.Gopalswamy,“Unifying ontological framework for all-terrain datasets,” in 7th IEEE International Conference on Robotic Computing (IRC), pp. 292–296, 2023."]
   },
-  'Project3': {
-    title: 'Project',
-    imageSrc: '/img/tempProject.jpg',
-    whatIsIt: 'text',
-    whyNeeded: 'text',
-    whatCastIsDoing: 'text',
+  'autonomous-navigation-stack': {
+    title: 'Sim-to-Real Autonomous Navigation Stack for Drive-By-Wire Vehicles',
+    imageSrc: '/img/navstack.png',
+    whatIsIt: 'This project focuses on developing a sim-to-real autonomous navigation stack for drive-by-wire vehicles using ROS2, integrating AMCL-based localization, NAV2 path planning, and a custom Stanley lateral controller with proportional longitudinal control to achieve closed-loop autonomous driving in mapped environments.',
+    whyNeeded: 'Bridging the gap between simulation and real-world autonomous vehicle deployment requires validated software stacks tested on production vehicle platforms. A fully integrated ROS2 autonomy stack on a drive-by-wire vehicle provides a realistic testbed for evaluating localization accuracy, controller performance, and sensor fusion under real dynamic conditions.',
+    whatCastIsDoing: 'CAST Lab is developing and validating a complete autonomous navigation pipeline on the Lincoln MKZ, including custom NAV2 controller plugins, Stanley path tracking, and a sensor fusion architecture combining lidar-based AMCL localization with wheel odometry. Current research focuses on improving localization robustness, controller stability across varying speeds, and seamless transition from simulation to real vehicle deployment.',
     publications: [],
-    topic: 'Topic C'
   },
-  'Project4': {
-    title: 'Project',
-    imageSrc: '/img/tempProject.jpg',
-    whatIsIt: 'text',
-    whyNeeded: 'text',
-    whatCastIsDoing: 'text',
+  'castbot-gamma': {
+    title: 'CASTBot Gamma',
+    imageSrc: '/img/castbotgamma.jpg',
+    whatIsIt: 'CASTBot Gamma is a hypermobile robot designed for enclosed spaces and autonomous functionality such as navigating a damaged building and gathering information or inspecting tight spaces such as industrial vents.',
+    whyNeeded: 'Project Objectives: <ul> <li>Design a compact, hypermobile robot capable of traversing diverse environments and overcome obstacles such as stairs, gaps, and debris</li> <li>The robot must be able to operate fully autonomously in a GPS degraded or denied environment</li> <li>The robot must survive harsh conditions such as falling or impacts</li> <li>The robot must be able to self right and continue to function in the case of a fall</li> </ul>',
+    whatCastIsDoing: 'CASTBot Gamma works to solve the major issues with current popular stair climbing robot designs. Most designs are larger and cannot fit in tight spaces while the CASTBot remains compact to fit entirely on a single stair. Many current designs are specific to certain obstacles and cannot easily adjust while CASTBot Gamma can adjust its form factor to handle a variety of obstacles. While most designs are not able to function in harsh environments or recover from falls, CASTBot Gamma is designed to be robust, survive falls, and be able to drive inverted in the event of a flip.',
     publications: [],
-    topic: 'Topic A'
   }
 };
 
 const projectData = projectsDB[project as string] || projectsDB['hard-platooning'];
+const hasPublications = Array.isArray(projectData.publications) && projectData.publications.length > 0;
 ---
 
 <MainLayout title={projectData.title}>
@@ -80,7 +82,9 @@ const projectData = projectsDB[project as string] || projectsDB['hard-platooning
       <section class="info-section">
         <div class="content-box bg-maroon chevron-box">
           <h2>What is it?</h2>
-          <p>{projectData.whatIsIt}</p>
+          <div class="content-body">
+            <p>{projectData.whatIsIt}</p>
+          </div>
         </div>
         <div class="empty-space"></div>
       </section>
@@ -90,7 +94,7 @@ const projectData = projectsDB[project as string] || projectsDB['hard-platooning
         <div class="empty-space"></div>
         <div class="content-box bg-secondary-maroon reverse-chevron-box">
           <h2>Why is it needed?</h2>
-          <p>{projectData.whyNeeded}</p>
+          <div class="content-body" set:html={projectData.whyNeeded}></div>
         </div>
       </section>
 
@@ -98,24 +102,27 @@ const projectData = projectsDB[project as string] || projectsDB['hard-platooning
       <section class="info-section">
         <div class="content-box bg-maroon chevron-box">
           <h2>What is CAST lab doing to improve it?</h2>
-          <p>{projectData.whatCastIsDoing}</p>
+          <div class="content-body">
+            <p>{projectData.whatCastIsDoing}</p>
+          </div>
         </div>
         <div class="empty-space"></div>
       </section>
 
       {/* "Select Publications or Links" Section */}
-      <section class="info-section reverse-section">
-        <div class="empty-space"></div>
-        <div class="content-box bg-secondary-maroon reverse-chevron-box">
-          <h2>Select Publications & Links</h2>
-          <ul class="publications-list">
-            {projectData.publications.map(pub => (
-              <li><a href={pub.link}>{pub.title}</a></li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
+      {hasPublications && (
+        <section class="info-section reverse-section">
+          <div class="empty-space"></div>
+          <div class="content-box bg-secondary-maroon reverse-chevron-box">
+            <h2>Select Publications & Links</h2>
+            <ul class="publications-list">
+              {projectData.publications.map((pub) => (
+                <li>{pub}</li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
     </div>
   </div>
 </MainLayout>
@@ -190,10 +197,33 @@ const projectData = projectsDB[project as string] || projectsDB['hard-platooning
     margin-bottom: 1rem;
   }
 
-  .content-box p {
+  .content-body {
     font-size: 1.1rem;
     line-height: 1.6;
+  }
+
+  .content-body p,
+  .content-body ul,
+  .content-body ol {
     margin: 0;
+  }
+
+  .content-body ul,
+  .content-body ol {
+    padding-left: 1.5rem;
+  }
+
+  .content-body li + li {
+    margin-top: 0.5rem;
+  }
+
+  .content-body a {
+    color: var(--white);
+    text-decoration: underline;
+  }
+
+  .content-body a:hover {
+    color: var(--light-gray);
   }
 
   .publications-list {

@@ -1,33 +1,91 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
 
-// Mock publication data
 const publications = [
   {
-    year: 2025,
-    items: [
+    "year": 2026,
+    "items": [
       {
-        title: "Title",
-        authors: "Author(s)",
-        journal: "Journal",
-        links: { pdf: "#", doi: "#" }
-      },
-      {
-        title: "Title",
-        authors: "Author(s)",
-        journal: "Journal",
-        links: { pdf: "#", doi: "#" }
+        "title": "Automated vehicle platooning systems and associated methods",
+        "authors": "S Gopalswamy, M Ashley, D Franklin",
+        "journal": "US Patent 12518633",
+        "links": { "patent": "https://patents.google.com/patent/US12518633B2/en" }
       }
     ]
   },
   {
-    year: 9999,
-    items: [
+    "year": 2024,
+    "items": [
       {
-        title: "Title",
-        authors: "Author(s)",
-        journal: "Journal",
-        links: { pdf: "#", doi: "#" }
+        "title": "Using a Sensor-Health-Aware Resilient Fusion for Localization in the Presence of GPS Spoofing Attacks",
+        "authors": "S Moosavi, I Moore, S Gopalswamy",
+        "journal": "2024 IEEE International Conference on Cyber Security and Resilience (CSR)",
+        "links": { "paper": "https://ieeexplore.ieee.org/abstract/document/10679455"}
+      },
+      {
+        "title": "Sensor-Health Aware Resilient Fusion With Application to Multi-Vehicle Tracking Using Infrastructure Sensors and Edge Compute",
+        "authors": "S Moosavi, A Weaver, S Gopalswamy",
+        "journal": "IEEE Transactions on Intelligent Transportation Systems 25 (11), 16059-16071",
+        "links": { "paper": "https://ieeexplore.ieee.org/abstract/document/10556725" }
+      }
+    ]
+  },
+  {
+    "year": 2023,
+    "items": [
+      {
+        "title": "Unifying ontological framework for all-terrain datasets",
+        "authors": "A Bhamri, A Medellin, D Grabowsky, D Mikulski, R Langari, ...",
+        "journal": "2023 Seventh IEEE International Conference on Robotic Computing (IRC), 292-296",
+        "links": { "paper": "https://ieeexplore.ieee.org/abstract/document/10473580" }
+      },
+      {
+        "title": "Real-time semantic segmentation using hyperspectral images for unstructured and unknown environments",
+        "authors": "A Medellin, A Bhamri, R Langari, S Gopalswamy",
+        "journal": "2023 13th Workshop on Hyperspectral Imaging and Signal Processing",
+        "links": { "paper": "https://ieeexplore.ieee.org/abstract/document/10431091" }
+      },
+      {
+        "title": "Emergent Cooperative Behavior in Distributed Target Tracking with Unknown Occlusions",
+        "authors": "T Li, LW Krakow, S Gopalswamy",
+        "journal": "2023 IEEE/RSJ International Conference on Intelligent Robots and Systems",
+        "links": { "paper": "https://ieeexplore.ieee.org/abstract/document/10342357" }
+      },
+      {
+        "title": "Applications of unifying off-road datasets through ontology",
+        "authors": "A Medellin, A Bhamri, A Ma, R Langari, S Gopalswamy, D Grabowsky, ...",
+        "journal": "2024 NDIA Michigan Chapter Ground Vehicle Systems Engineering and Technology",
+        "links": { "paper": "https://saemobilus.sae.org/papers/applications-unifying-off-road-datasets-through-ontology-2024-01-4074" }
+      },
+      {
+        "title": "PHYSICALLY COOPERATING AUTONOMOUS GROUND VEHICLES",
+        "authors": "M Ashley, D McMullan, S Gopalswamy",
+        "journal": "2023 NDIA Michigan Chapter Ground Vehicle Systems Engineering and Technology",
+        "links": { "paper": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=PWmUzp0AAAAJ&sortby=pubdate&citation_for_view=PWmUzp0AAAAJ:BqipwSGYUEgC" }
+      },
+      {
+        "title": "Localization in Global Positioning System–Denied Environments Using Infrastructure-Embedded Analog-Digital Information",
+        "authors": "S Moosavi",
+        "journal": "SAE International Journal of Connected and Automated Vehicles 6 (4), 447-458",
+        "links": { "paper": "https://saemobilus.sae.org/articles/localization-global-positioning-system-denied-environments-using-infrastructure-embedded-analog-digital-information-12-06-04-0029" }
+      },
+      {
+        "title": "Real-time semantic segmentation using hyperspectral images for mapping unstructured and unknown environments",
+        "authors": "A Medellin, A Bhamri, R Langari, S Gopalswamy",
+        "journal": "arXiv preprint arXiv:2303.15623",
+        "links": { "paper": "https://arxiv.org/abs/2303.15623" }
+      },
+      {
+        "title": "PHYSICALLY COOPERATING AUTONOMOUS GROUND VEHICLES",
+        "authors": "S Ashley, M., McMullan, D., and Gopalswamy",
+        "journal": "SAE Technical Paper",
+        "links": { "paper": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=PWmUzp0AAAAJ&sortby=pubdate&citation_for_view=PWmUzp0AAAAJ:vV6vV6tmYwMC" }
+      },
+      {
+        "title": "Semantic world model for off-road environments for autonomous navigation and decision making",
+        "authors": "A Bhamri, S Gopalswamy",
+        "journal": "2nd International Workshop on Working towards Ontology-based Standards",
+        "links": { "paper": "https://wosra.github.io/wosra2023/documents/WOSRA_2023_paper_3.pdf" }
       }
     ]
   }
@@ -38,6 +96,7 @@ const publications = [
   <div class="publications-page container">
     <header class="page-header">
       <h1>Selected Publications</h1>
+      <p>Full publications list on <u><a href="https://scholar.google.com/citations?hl=en&user=PWmUzp0AAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener"> Google Scholar</a></u></p>
       
       {/* Search and Filter Tools */}
       <div class="pub-tools">
@@ -48,12 +107,6 @@ const publications = [
             <option value="oldest">Oldest First (Year)</option>
           </select>
         </div>
-        
-        <div class="search-bar">
-          <input type="text" placeholder="Search publications..." />
-          <button type="submit" aria-label="Search" class="search-btn">🔍</button>
-        </div>
-      </div>
     </header>
 
     <div class="publications-list">
@@ -75,7 +128,9 @@ const publications = [
                       
                       <div class="pub-links">
                         {pub.links.pdf ? <a href={pub.links.pdf} class="btn-small bg-maroon">PDF</a> : null}
-                        {pub.links.doi ? <a href={pub.links.doi} class="btn-small bg-secondary-maroon">DOI</a> : null}
+                        {pub.links.patent ? <a href={pub.links.patent} class="btn-small bg-secondary-maroon">Patent</a> : null}
+                        {pub.links.paper ? <a href={pub.links.paper} class="btn-small bg-maroon">Paper</a> : null}
+
                       </div>
 
                       {/* Technical/gear icon separator, unless it's the last item in the list */}
@@ -101,6 +156,43 @@ const publications = [
   </div>
 </MainLayout>
 
+  <script type="module">
+    const select = document.getElementById('year-filter');
+    const list = document.querySelector('.publications-list');
+
+    function rebuildDividers(groups) {
+      const existingDividers = list.querySelectorAll('.year-divider');
+      existingDividers.forEach(d => d.remove());
+      groups.forEach((g, idx) => {
+        if (idx < groups.length - 1) {
+          const hr = document.createElement('hr');
+          hr.className = 'year-divider';
+          // Insert divider after this group (i.e. before the next group's element)
+          list.insertBefore(hr, groups[idx + 1]);
+        }
+      });
+    }
+
+    if (select && list) {
+      select.addEventListener('change', (e) => {
+        const val = e.target.value;
+        const groups = Array.from(list.querySelectorAll('.year-group'));
+
+        groups.sort((a, b) => {
+          const ay = parseInt(a.querySelector('.year-heading h2').textContent, 10) || 0;
+          const by = parseInt(b.querySelector('.year-heading h2').textContent, 10) || 0;
+          return val === 'newest' ? by - ay : ay - by;
+        });
+
+        // Append in new order
+        groups.forEach(g => list.appendChild(g));
+
+        // Rebuild dividers between groups
+        rebuildDividers(groups);
+      });
+    }
+  </script>
+
 <style>
   .publications-page {
     padding: var(--spacing-xl) var(--spacing-md);
@@ -121,13 +213,14 @@ const publications = [
   /* Toolbar */
   .pub-tools {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
-    margin-top: var(--spacing-lg);
+    margin-top: var(--spacing-xs);
+    margin-bottom: var(--spacing-xs);
     flex-wrap: wrap;
     gap: var(--spacing-md);
   }
-
+  
   .custom-select {
     padding: 0.5rem;
     font-family: var(--font-body);

@@ -28,7 +28,11 @@ import MainLayout from '../layouts/MainLayout.astro';
       </div>
       <div class="about-text">
         <h2>What CAST Lab Does</h2>
-        <p>About text</p>
+        <p style="font-size: 15px;">Connected Autonomous Safe Technologies (CAST) Laboratory engages in collaborative, multi-disciplinary research to accelerate deployment of safe and sustainable mobility, including connected autonomous vehicles. </p>
+        <p style="font-size: 15px;">Technology impactful to society is inherently multi-disciplinary, bringing together advances in a variety of scientific and technological areas (mechanical, electrical, chemical, electronic, and software systems). Our lab embraces this idea, adopting an open, multi-disciplinary, technology-based problem-solving approach to complex real-world issues. </p>
+        <p style="font-size: 15px;"> As the value delivered to end users increases, so does the complexity of the underlying systems—often exponentially. This complexity introduces fundamental challenges: how to optimally design systems that meet functional objectives while satisfying diverse operational constraints; how to rigorously define those objectives with sufficient precision; how to verify that a system performs as intended; and, most critically, how to ensure that to operate safely under all expected conditions. </p>
+        <p style="font-size: 15px;"> Our lab is dedicated to addressing these questions, specifically in two of the most rapidly advancing technological areas: <b>Connectivity and Autonomy</b>. Advances in sensing, actuation, control theory, machine learning, artificial intelligence, and optimization have driven significant progress in autonomous systems. At the same time, breakthroughs in communication and network technologies have enabled high-throughput, low-latency connectivity, allowing distributed systems to coordinate and act collectively toward shared objectives. We are particularly interested in solutions that leverage autonomy, connectivity, or their intersection to enhance human safety and security across diverse environments. </p>
+
       </div>
     </div>
   </section>
@@ -41,23 +45,23 @@ import MainLayout from '../layouts/MainLayout.astro';
         {/* Circle 1 */}
         <a href="/research/hard-platooning" class="circle-item">
           <div class="circle-photo-wrapper">
-            <img src="/img/tempProject.jpg" alt="Research 1" class="circle-photo"/>
+            <img src="/img/hardplatooning.png" alt="Research 1" class="circle-photo"/>
           </div>
           <p class="circle-label">Hard Platooning</p>
         </a>
         {/* Circle 2 */}
-        <a href="/research/Project1" class="circle-item">
+        <a href="/research/semantic-world-models" class="circle-item">
           <div class="circle-photo-wrapper">
-            <img src="/img/tempProject.jpg" alt="Research 2" class="circle-photo"/>
+            <img src="/img/tempProject2.jpg" alt="Research 2" class="circle-photo"/>
           </div>
-          <p class="circle-label">Temp</p>
+          <p class="circle-label">Semantic World Models</p>
         </a>
         {/* Circle 3 */}
-        <a href="/research/Project2" class="circle-item">
+        <a href="/research/castbot-gamma" class="circle-item">
           <div class="circle-photo-wrapper">
-            <img src="/img/tempProject.jpg" alt="Research 3" class="circle-photo"/>
+            <img src="/img/castbotgamma.jpg" alt="Research 3" class="circle-photo"/>
           </div>
-          <p class="circle-label">Temp</p>
+          <p class="circle-label">CASTBot Gamma</p>
         </a>
       </div>
       <div class="more-projects-wrapper">
@@ -75,28 +79,28 @@ import MainLayout from '../layouts/MainLayout.astro';
         <div class="news-list">
           <!-- News Item 1 -->
           <div class="news-card">
-            <div class="news-date">Date</div>
+            <div class="news-date">January 2026</div>
             <div class="news-content">
-              <h3>Headline</h3>
-              <a href="#" class="read-more">Insert Link→</a>
+              <h3>Automated vehicle platooning systems and associated methods</h3>
+              <a href="https://patents.google.com/patent/US12518633B2/en" class="read-more">Patent→</a>
             </div>
           </div>
           
           <!-- News Item 2 -->
           <div class="news-card">
-            <div class="news-date">Date</div>
+            <div class="news-date">September 2024</div>
             <div class="news-content">
-              <h3>Headline</h3>
-              <a href="#" class="read-more">Insert Link→</a>
+              <h3>Using a Sensor-Health-Aware Resilient Fusion for Localization in the Presence of GPS Spoofing Attacks</h3>
+              <a href="https://ieeexplore.ieee.org/abstract/document/10679455" class="read-more">Paper→</a>
             </div>
           </div>
           
           <!-- News Item 3 -->
           <div class="news-card">
-            <div class="news-date">Date</div>
+            <div class="news-date">June 2024</div>
             <div class="news-content">
-              <h3>Headline</h3>
-              <a href="#" class="read-more">Insert Link →</a>
+              <h3>Sensor-Health Aware Resilient Fusion With Application to Multi-Vehicle Tracking Using Infrastructure Sensors and Edge Compute</h3>
+              <a href="https://ieeexplore.ieee.org/abstract/document/10556725" class="read-more">Paper→</a>
             </div>
           </div>
         </div>
@@ -106,7 +110,6 @@ import MainLayout from '../layouts/MainLayout.astro';
           <div class="feature-image">
              {/* Placeholder for large image */}
             <img src="/img/castbot.png" alt="Featured News Image" />
-            
             <a href="/publications" class="ribbon-btn">
               All Publications
             </a>
@@ -119,6 +122,10 @@ import MainLayout from '../layouts/MainLayout.astro';
 </MainLayout>
 
 <style>
+  p {
+    margin-bottom: 20px;
+  }
+
   /* Hero Section */
   .hero-section {
     position: relative;
@@ -481,4 +488,34 @@ import MainLayout from '../layouts/MainLayout.astro';
   .news-list .news-card:nth-child(1) { animation-delay: 0.12s; }
   .news-list .news-card:nth-child(2) { animation-delay: 0.18s; }
   .news-list .news-card:nth-child(3) { animation-delay: 0.24s; }
+
+  /* Reduced side spacing for this page so content reaches edges more */
+  .container {
+    max-width: 1400px; /* wider container to reduce large side gutters */
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Make major sections stretch closer to the viewport edges */
+  .hero-section,
+  .about-section,
+  .working-on-section,
+  .news-section {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Reduce inner gaps in the about layout so image and text sit closer to edges */
+  .about-container {
+    gap: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  @media (max-width: 1200px) {
+    .container { max-width: 100%; padding-left: 1.25rem; padding-right: 1.25rem; }
+    .about-container { gap: 1.25rem; padding-left: 0.75rem; padding-right: 0.75rem; }
+  }
 </style>
